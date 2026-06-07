@@ -226,6 +226,7 @@ eval_perf_1cmpt <- function(dat,
 #'
 #' @return A `data.frame` of unique parameter combinations with source labels and values.
 #' @examples
+#' \donttest{
 #' dat <- Oral_1CPT
 #' # Example parameter estimates from different methods
 #' sp_out_ka <- 1.2; sp_out_cl <- 3.5; sp_out_vd <- 50
@@ -244,6 +245,7 @@ eval_perf_1cmpt <- function(dat,
 #'   nca_all_ka = nca_all_ka, nca_all_cl = nca_all_cl, nca_all_vd = nca_all_vd,
 #'   verbose = FALSE
 #' )
+#'}
 #' @export
 
 hybrid_eval_perf_1cmpt <- function(route = "bolus",

@@ -75,6 +75,7 @@ that are redundant based on relative tolerance. Only oral routes consider ka val
 for deduplication. Any parameter value set that includes NA is removed up front.
 }
 \examples{
+\donttest{
 dat <- Oral_1CPT
 # Example parameter estimates from different methods
 sp_out_ka <- 1.2; sp_out_cl <- 3.5; sp_out_vd <- 50
@@ -93,4 +94,5 @@ nca_all_ka <- 1.25; nca_all_cl <- 3.55; nca_all_vd <- 51
   nca_all_ka = nca_all_ka, nca_all_cl = nca_all_cl, nca_all_vd = nca_all_vd,
   verbose = FALSE
 )
+}
 }
