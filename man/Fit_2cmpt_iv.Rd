@@ -52,10 +52,10 @@ only predicted concentrations to support efficient simulation workflows.
 \examples{
  \donttest{
 dat <- Bolus_2CPT
-# Fit using 'nls'
+# Run simulation
 Fit_2cmpt_iv(
   data = dat,
-  est.method = "nls",
+  est.method = "rxSolve",
   input.cl = 4,
   input.vc2cmpt = 70,
   input.vp2cmpt = 40,

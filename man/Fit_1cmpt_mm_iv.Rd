@@ -49,10 +49,10 @@ returns only predicted concentrations to reduce memory use in simulation workflo
 \examples{
  \donttest{
 dat <- Bolus_1CPTMM
-# Fit using 'nls'
+# Run simulation
 Fit_1cmpt_mm_iv(
   data = dat,
-  est.method = "nls",
+  est.method = "rxSolve",
   input.vmax = 1000,
   input.km = 250,
   input.vd = 70,

@@ -49,10 +49,10 @@ only predicted concentrations to support efficient simulation workflows.
 \examples{
 \donttest{
 dat <- Oral_1CPT
-# Fit using 'nls'
+# Run simulation
 Fit_1cmpt_oral(
   data = dat,
-  est.method = "nls",
+  est.method = "rxSolve",
   input.ka = 1,
   input.cl = 4,
   input.vd = 70,
