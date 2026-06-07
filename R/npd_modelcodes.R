@@ -31,10 +31,10 @@
 #' @examples
 #'  \donttest{
 #' dat <- Bolus_1CPT
-#' # Fit using 'nls' with default control
+#' # Run simulation
 #' Fit_1cmpt_iv(
 #'   data = dat,
-#'   est.method = "nls",
+#'   est.method = "rxSolve",
 #'   input.cl = 4,
 #'   input.vd = 70,
 #'   input.add = 1
@@ -152,10 +152,10 @@ Fit_1cmpt_iv <- function(data,
 #' @examples
 #'  \donttest{
 #' dat <- Bolus_1CPTMM
-#' # Fit using 'nls'
+#' # Run simulation
 #' Fit_1cmpt_mm_iv(
 #'   data = dat,
-#'   est.method = "nls",
+#'   est.method = "rxSolve",
 #'   input.vmax = 1000,
 #'   input.km = 250,
 #'   input.vd = 70,
@@ -277,10 +277,10 @@ Fit_1cmpt_mm_iv <- function(data,
 #' @examples
 #'  \donttest{
 #' dat <- Bolus_2CPT
-#' # Fit using 'nls'
+#' # Run simulation
 #' Fit_2cmpt_iv(
 #'   data = dat,
-#'   est.method = "nls",
+#'   est.method = "rxSolve",
 #'   input.cl = 4,
 #'   input.vc2cmpt = 70,
 #'   input.vp2cmpt = 40,
@@ -417,10 +417,10 @@ Fit_2cmpt_iv <- function(data,
 #' @examples
 #' \donttest{
 #' dat <- Bolus_2CPT
-#' # Fit using 'nls'
+#' # Run simulation
 #' Fit_3cmpt_iv(
 #'   data = dat,
-#'   est.method = "nls",
+#'   est.method = "rxSolve",
 #'   input.cl = 4,
 #'   input.vc3cmpt = 70,
 #'   input.vp3cmpt = 35,
@@ -562,10 +562,10 @@ Fit_3cmpt_iv <- function(data,
 #' @examples
 #' \donttest{
 #' dat <- Oral_1CPT
-#' # Fit using 'nls'
+#' # Run simulation
 #' Fit_1cmpt_oral(
 #'   data = dat,
-#'   est.method = "nls",
+#'   est.method = "rxSolve",
 #'   input.ka = 1,
 #'   input.cl = 4,
 #'   input.vd = 70,
@@ -690,10 +690,10 @@ Fit_1cmpt_oral <- function(data,
 #' @examples
 #'  \donttest{
 #' dat <- Oral_1CPTMM
-#' # Fit using 'nls'
+#' # Run simulation
 #' Fit_1cmpt_mm_oral(
 #'   data = dat,
-#'   est.method = "nls",
+#'   est.method = "rxSolve",
 #'   input.ka = 1,
 #'   input.vmax = 1000,
 #'   input.km = 250,
@@ -822,10 +822,10 @@ Fit_1cmpt_mm_oral <- function(data,
 #' @examples
 #' \donttest{
 #' dat <- Oral_2CPT
-#' # Fit using 'nls'
+#' # Run simulation
 #' Fit_2cmpt_oral(
 #'   data = dat,
-#'   est.method = "nls",
+#'   est.method = "rxSolve",
 #'   input.ka = 1,
 #'   input.cl = 4,
 #'   input.vc2cmpt = 70,
