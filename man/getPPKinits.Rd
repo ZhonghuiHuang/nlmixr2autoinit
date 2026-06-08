@@ -52,10 +52,7 @@ mixed-effects pharmacokinetic models.
 }
 \examples{
 \donttest{
-## Bolus example
-getPPKinits(Bolus_1CPT,verbose = TRUE)
-## Oral example (run quietly)
-getPPKinits(Oral_1CPT,verbose = FALSE)
+getPPKinits(pheno_sd)
 }
 
 }
