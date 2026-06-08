@@ -117,16 +117,13 @@ metrics. <- function(pred.x,
 #' @export
 #'
 #' @examples
-#'
 #' eval_perf_1cmpt(
-#'   dat = Oral_1CPT,
+#'   dat = pheno_sd,
 #'   est.method = "rxSolve",
-#'   ka = 1,
-#'   cl = 4,
-#'   vd = 70,
-#'   route = "oral"
+#'   cl = 0.006,
+#'   vd = 1,
+#'   route = "bolus"
 #' )
-#'
 eval_perf_1cmpt <- function(dat,
                             est.method = "rxSolve",
                             ka = NULL,
@@ -226,8 +223,7 @@ eval_perf_1cmpt <- function(dat,
 #'
 #' @return A `data.frame` of unique parameter combinations with source labels and values.
 #' @examples
-#' \donttest{
-#' dat <- Oral_1CPT
+#' dat <- Oral_1CPT[Oral_1CPT$ID<11,]
 #' # Example parameter estimates from different methods
 #' sp_out_ka <- 1.2; sp_out_cl <- 3.5; sp_out_vd <- 50
 #' graph_out_ka <- 1.1; graph_out_cl <- 3.6; graph_out_vd <- 52
@@ -245,7 +241,6 @@ eval_perf_1cmpt <- function(dat,
 #'   nca_all_ka = nca_all_ka, nca_all_cl = nca_all_cl, nca_all_vd = nca_all_vd,
 #'   verbose = FALSE
 #' )
-#'}
 #' @export
 
 hybrid_eval_perf_1cmpt <- function(route = "bolus",
