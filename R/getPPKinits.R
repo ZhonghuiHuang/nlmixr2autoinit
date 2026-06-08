@@ -48,7 +48,7 @@
 #'
 #' @examples
 #' \donttest{
-#' getPPKinits(pheno_sd)
+#' getPPKinits(pheno_sd[pheno_sd$ID<11,])
 #' }
 #'
 #' @export
