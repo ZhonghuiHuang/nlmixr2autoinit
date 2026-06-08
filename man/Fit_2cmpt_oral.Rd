@@ -54,7 +54,7 @@ returns only predicted concentrations to support simulation workflows.
 }
 \examples{
 \donttest{
-dat <- Oral_2CPT
+dat <- Oral_2CPT[Oral_2CPT$ID<11,]
 # Run simulation
 Fit_2cmpt_oral(
   data = dat,
@@ -65,18 +65,6 @@ Fit_2cmpt_oral(
   input.vp2cmpt = 40,
   input.q2cmpt = 10,
   input.add = 10
-)
-# Return only predicted concentrations
-Fit_2cmpt_oral(
-  data = dat,
-  est.method = "rxSolve",
-  input.ka = 1,
-  input.cl = 4,
-  input.vc2cmpt = 70,
-  input.vp2cmpt = 40,
-  input.q2cmpt = 4,
-  input.add = 10,
-  return.pred.only = TRUE
 )
 }
 }

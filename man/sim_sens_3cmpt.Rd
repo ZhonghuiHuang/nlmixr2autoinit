@@ -92,7 +92,7 @@ manually or derived automatically.
 \examples{
 \donttest{
 out <- sim_sens_3cmpt(
-  dat = Bolus_2CPT,
+  dat = Bolus_2CPT[Bolus_2CPT$ID<6,],
   sim_cl = list(mode = "manual", values = 4),
   sim_vc = list(mode = "manual", values = 50),
   sim_vp = list(mode = "auto"),

@@ -44,16 +44,13 @@ Internally selects the appropriate one-compartment model fitting function, using
 Predictive performance is quantified using the \code{metrics.()} function.
 }
 \examples{
-
 eval_perf_1cmpt(
-  dat = Oral_1CPT,
+  dat = pheno_sd,
   est.method = "rxSolve",
-  ka = 1,
-  cl = 4,
-  vd = 70,
-  route = "oral"
+  cl = 0.006,
+  vd = 1,
+  route = "bolus"
 )
-
 }
 \seealso{
 \code{\link{Fit_1cmpt_oral}}, \code{\link{Fit_1cmpt_iv}}, \code{\link{metrics.}}
