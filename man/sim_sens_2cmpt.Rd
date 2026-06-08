@@ -13,6 +13,7 @@ sim_sens_2cmpt(
   sim_q = list(mode = c("auto", "manual"), values = NULL, auto.strategy = c("scaled",
     "fixed")),
   route = c("iv", "oral"),
+  ncores = 2,
   verbose = TRUE
 )
 }
@@ -50,6 +51,9 @@ sim_sens_2cmpt(
 }}
 
 \item{route}{Dosing route, either "iv" or "oral". Default is "iv".}
+
+\item{ncores}{Number of cores to use for parallelization, passed to
+\code{rxControl()}. Default is 2.}
 
 \item{verbose}{Logical (default = TRUE).
 Controls whether progress information is displayed during parameter sweeping.

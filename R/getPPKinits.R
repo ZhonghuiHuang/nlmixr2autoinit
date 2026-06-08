@@ -9,6 +9,8 @@
 #' @param control A list created by `initsControl()` specifying configuration for
 #'   pooling, non-compartmental analysis, steady-state detection, fallback rules,
 #'   statistical model components, and parameter selection metrics.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param verbose Logical (default = TRUE); when TRUE, displays key progress
 #'   messages and stepwise updates during the initialization process. When FALSE,
 #'   the function runs quietly without printing intermediate information.
@@ -55,6 +57,7 @@
 
 getPPKinits <- function(dat,
                         control = initsControl(),
+                        ncores=2,
                         verbose = TRUE) {
 
   # load control
@@ -209,7 +212,8 @@ getPPKinits <- function(dat,
       ka_nca_fd,
       nca_out$nca.fd.results$clobs,
       nca_out$nca.fd.results$vzobs,
-      route
+      route,
+      ncores
     ),
     nca_efd = eval_perf_1cmpt(
       dat,
@@ -217,7 +221,8 @@ getPPKinits <- function(dat,
       ka_nca_efd,
       nca_out$nca.efd.results$clobs,
       nca_out$nca.efd.results$vzobs,
-      route
+      route,
+      ncores
     ),
     nca_all = eval_perf_1cmpt(
       dat,
@@ -225,7 +230,8 @@ getPPKinits <- function(dat,
       ka_nca_all,
       nca_out$nca.all.results$clobs,
       nca_out$nca.all.results$vzobs,
-      route
+      route,
+      ncores
     )
   )
   ka <- c(NA,NA,NA,NA,NA)
@@ -367,6 +373,7 @@ getPPKinits <- function(dat,
       nca_all_ka    = ka_nca_all,
       nca_all_cl    = nca_out$nca.all.results$clobs,
       nca_all_vd    = nca_out$nca.all.results$vzobs,
+      ncores = ncores,
       verbose = verbose
     )
 
@@ -524,6 +531,7 @@ getPPKinits <- function(dat,
       sim_vd   = list(mode = "manual", values = base.vd.best),
       sim_ka   = list(mode = "manual", values = NA),
       route    = "iv",
+      ncores = ncores,
       verbose = verbose
     )
   }
@@ -537,6 +545,7 @@ getPPKinits <- function(dat,
       sim_vd   = list(mode = "manual", values = c(approx.vc.value, base.vd.best)),
       sim_ka   = list(mode = "manual", values = base.ka.best),
       route    = "oral",
+      ncores = ncores,
       verbose = verbose
     )
   }
@@ -559,6 +568,7 @@ getPPKinits <- function(dat,
       sim_q   = list(mode = "auto", auto.strategy = "scaled"),
       sim_ka  = list(mode = "manual", values = NA),
       route   = "iv",
+      ncores = ncores,
       verbose = verbose
     )
   }
@@ -572,6 +582,7 @@ getPPKinits <- function(dat,
       sim_q   = list(mode = "auto", auto.strategy = "scaled"),
       sim_ka  = list(mode = "manual", values = base.ka.best),
       route   = "oral",
+      ncores = ncores,
       verbose = verbose
      )
     }
@@ -590,6 +601,7 @@ getPPKinits <- function(dat,
       sim_q2   = list(mode = "auto", auto.strategy = "scaled"),
       sim_ka   = list(mode = "manual", values = NA),
       route    = "iv",
+      ncores = ncores,
       verbose = verbose
     )
   }
@@ -605,6 +617,7 @@ getPPKinits <- function(dat,
       sim_q2   = list(mode = "auto", auto.strategy = "scaled"),
       sim_ka   = list(mode = "manual", values = base.ka.best),
       route    = "oral",
+      ncores = ncores,
       verbose = verbose
     )
   }

@@ -4,7 +4,7 @@
 \alias{getPPKinits}
 \title{Automated pipeline for generating initial estimates in population PK models}
 \usage{
-getPPKinits(dat, control = initsControl(), verbose = TRUE)
+getPPKinits(dat, control = initsControl(), ncores = 2, verbose = TRUE)
 }
 \arguments{
 \item{dat}{A data frame containing pharmacokinetic records in standard nlmixr2
@@ -13,6 +13,9 @@ format, including ID, TIME, EVID, and DV.}
 \item{control}{A list created by \code{initsControl()} specifying configuration for
 pooling, non-compartmental analysis, steady-state detection, fallback rules,
 statistical model components, and parameter selection metrics.}
+
+\item{ncores}{Number of cores to use for parallelization, passed to
+\code{rxControl()}. Default is 2.}
 
 \item{verbose}{Logical (default = TRUE); when TRUE, displays key progress
 messages and stepwise updates during the initialization process. When FALSE,

@@ -102,6 +102,8 @@ metrics. <- function(pred.x,
 #' @param vd Volume of distribution.
 #' @param route A character string indicating the route of administration.
 #' Must be one of `"oral"`, `"infusion"`, or `"bolus"`. Defaults to `"bolus"`.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #'
 #' @details
 #' Internally selects the appropriate one-compartment model fitting function, using
@@ -129,7 +131,8 @@ eval_perf_1cmpt <- function(dat,
                             ka = NULL,
                             cl = NULL,
                             vd = NULL,
-                            route = c("bolus", "infusion", "oral")) {
+                            route = c("bolus", "infusion", "oral"),
+                            ncores = 2) {
   # safe check
   route <- tryCatch(
     match.arg(route, choices = c("bolus", "oral", "infusion")),
@@ -171,7 +174,8 @@ eval_perf_1cmpt <- function(dat,
         NA,
       input.cl = cl,
       input.vd = vd,
-      input.add = 0
+      input.add = 0,
+      ncores = ncores
     )
   }, error = function(e)
     return(NULL))
@@ -216,6 +220,8 @@ eval_perf_1cmpt <- function(dat,
 #' @param nca_all_ka Numeric; ka estimated from naive pooled NCA using combined first- and repeated-dose data.
 #' @param nca_all_cl Numeric; clearance estimated from naive pooled NCA using combined first- and repeated-dose data.
 #' @param nca_all_vd Numeric; volume of distribution estimated from naive pooled NCA using combined first- and repeated-dose data.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param verbose Logical; if TRUE (default), displays a textual progress bar during model
 #'   evaluation using the 'progressr' package. Set to FALSE to run
 #'   silently without showing progress information, which is recommended for
@@ -260,6 +266,7 @@ hybrid_eval_perf_1cmpt <- function(route = "bolus",
                                    nca_all_ka,
                                    nca_all_cl,
                                    nca_all_vd,
+                                   ncores = 2,
                                    verbose=TRUE) {
   # Source labels
   all_sources <-
@@ -420,7 +427,8 @@ hybrid_eval_perf_1cmpt <- function(route = "bolus",
                               as.numeric(row[["ka_value"]]),
                               as.numeric(row[["cl_value"]]),
                               as.numeric(row[["vd_value"]]),
-                              route)
+                              route,
+                              ncores)
 
       p(sprintf("Evaluating combination %d", i))
 

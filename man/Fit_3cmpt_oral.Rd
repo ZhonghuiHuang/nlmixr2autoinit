@@ -15,6 +15,7 @@ Fit_3cmpt_oral(
   input.q3cmpt,
   input.q23cmpt,
   input.add,
+  ncores = 2,
   return.pred.only = FALSE,
   ...
 )
@@ -41,6 +42,9 @@ Fit_3cmpt_oral(
 
 \item{input.add}{Initial estimate of the additive residual error.}
 
+\item{ncores}{Number of cores to use for parallelization, passed to
+\code{rxControl()}. Default is 2.}
+
 \item{return.pred.only}{Logical; if \code{TRUE}, returns a data frame with
 only predicted concentrations (\code{cp}) for all observations in the input data.}
 
@@ -60,8 +64,7 @@ only predicted concentrations to support efficient simulation workflows.
 }
 \examples{
 \donttest{
-dat <- Oral_2CPT
-# Return only predicted concentrations
+dat <- Oral_2CPT[Oral_2CPT$ID<11,]
 Fit_3cmpt_oral(
   data = dat,
   est.method = "rxSolve",
@@ -72,8 +75,7 @@ Fit_3cmpt_oral(
   input.vp23cmpt = 35,
   input.q3cmpt = 4,
   input.q23cmpt = 4,
-  input.add = 10,
-  return.pred.only = TRUE
+  input.add = 10
 )
 }
 }

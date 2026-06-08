@@ -11,6 +11,8 @@
 #' @param input.cl Initial estimate of clearance (CL).
 #' @param input.vd Initial estimate of volume of distribution (V).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Additional arguments passed to \code{nlmixr2()}, such as a user-defined
@@ -56,6 +58,7 @@ Fit_1cmpt_iv <- function(data,
                          input.cl,
                          input.vd,
                          input.add,
+                         ncores = 2,
                          return.pred.only = FALSE,
                          ...) {
 
@@ -85,7 +88,7 @@ Fit_1cmpt_iv <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
 
     ctrl <- switch(
       est.method,
@@ -138,6 +141,8 @@ Fit_1cmpt_iv <- function(data,
 #' @param input.km Initial estimate of the Michaelis constant (Km).
 #' @param input.vd Initial estimate of the volume of distribution (V).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Optional arguments passed to \code{nlmixr2()}, such as a custom
@@ -180,6 +185,7 @@ Fit_1cmpt_mm_iv <- function(data,
                             input.km,
                             input.vd,
                             input.add,
+                            ncores = 2,
                             return.pred.only = FALSE,
                             ...) {
 
@@ -208,7 +214,7 @@ Fit_1cmpt_mm_iv <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
 
     ctrl <- switch(
       est.method,
@@ -263,6 +269,8 @@ Fit_1cmpt_mm_iv <- function(data,
 #' @param input.vp2cmpt Initial estimate of peripheral volume of distribution (V2).
 #' @param input.q2cmpt Initial estimate of inter-compartmental clearance (Q).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Additional arguments passed to \code{nlmixr2()}, such as a user-defined
@@ -309,6 +317,7 @@ Fit_2cmpt_iv <- function(data,
                          input.vp2cmpt,
                          input.q2cmpt,
                          input.add,
+                         ncores = 2,
                          return.pred.only = FALSE,
                          ...) {
 
@@ -347,7 +356,7 @@ Fit_2cmpt_iv <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
     ctrl <- switch(
       est.method,
       "rxSolve"  =  rx_ctrl,
@@ -403,6 +412,8 @@ Fit_2cmpt_iv <- function(data,
 #' @param input.q3cmpt Initial estimate of first inter-compartmental clearance (Q1).
 #' @param input.q23cmpt Initial estimate of second inter-compartmental clearance (Q2).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Additional arguments passed to \code{nlmixr2()}, such as a user-defined
@@ -453,6 +464,7 @@ Fit_3cmpt_iv <- function(data,
                          input.q3cmpt,
                          input.q23cmpt,
                          input.add,
+                         ncores = 2,
                          return.pred.only = FALSE,
                          ...) {
 
@@ -498,7 +510,7 @@ Fit_3cmpt_iv <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
     ctrl <- switch(
       est.method,
       "rxSolve"  = rx_ctrl,
@@ -548,6 +560,8 @@ Fit_3cmpt_iv <- function(data,
 #' @param input.cl Initial estimate of clearance (CL).
 #' @param input.vd Initial estimate of volume of distribution (V).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Additional arguments passed to \code{nlmixr2()}, such as a user-defined
@@ -590,6 +604,7 @@ Fit_1cmpt_oral <- function(data,
                            input.cl,
                            input.vd,
                            input.add,
+                           ncores = 2,
                            return.pred.only = FALSE,
                            ...) {
 
@@ -623,7 +638,7 @@ Fit_1cmpt_oral <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
 
     ctrl <- switch(
       est.method,
@@ -676,6 +691,8 @@ Fit_1cmpt_oral <- function(data,
 #' @param input.km Initial estimate of the Michaelis constant (Km).
 #' @param input.vd Initial estimate of the volume of distribution (V).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Optional arguments passed to \code{nlmixr2()}, such as a custom
@@ -720,6 +737,7 @@ Fit_1cmpt_mm_oral <- function(data,
                               input.km,
                               input.vd,
                               input.add,
+                              ncores = 2,
                               return.pred.only = FALSE,
                               ...) {
 
@@ -754,7 +772,7 @@ Fit_1cmpt_mm_oral <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
 
     ctrl <- switch(
       est.method,
@@ -808,6 +826,8 @@ Fit_1cmpt_mm_oral <- function(data,
 #' @param input.vp2cmpt Initial estimate of peripheral volume of distribution (V2).
 #' @param input.q2cmpt Initial estimate of inter-compartmental clearance (Q).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Additional arguments passed to \code{nlmixr2()}, such as a user-defined
@@ -844,6 +864,7 @@ Fit_2cmpt_oral <- function(data,
                            input.vp2cmpt,
                            input.q2cmpt,
                            input.add,
+                           ncores = 2,
                            return.pred.only = FALSE,
                            ...) {
 
@@ -887,7 +908,7 @@ Fit_2cmpt_oral <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
     ctrl <- switch(
       est.method,
       "rxSolve"  = rx_ctrl,
@@ -943,6 +964,8 @@ Fit_2cmpt_oral <- function(data,
 #' @param input.q3cmpt Initial estimate of first inter-compartmental clearance (Q1).
 #' @param input.q23cmpt Initial estimate of second inter-compartmental clearance (Q2).
 #' @param input.add Initial estimate of the additive residual error.
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
 #' @param return.pred.only Logical; if \code{TRUE}, returns a data frame with
 #'   only predicted concentrations (\code{cp}) for all observations in the input data.
 #' @param ... Additional arguments passed to \code{nlmixr2()}, such as a user-defined
@@ -956,8 +979,7 @@ Fit_2cmpt_oral <- function(data,
 #'
 #' @examples
 #' \donttest{
-#' dat <- Oral_2CPT
-#' # Return only predicted concentrations
+#' dat <- Oral_2CPT[Oral_2CPT$ID<11,]
 #' Fit_3cmpt_oral(
 #'   data = dat,
 #'   est.method = "rxSolve",
@@ -968,8 +990,7 @@ Fit_2cmpt_oral <- function(data,
 #'   input.vp23cmpt = 35,
 #'   input.q3cmpt = 4,
 #'   input.q23cmpt = 4,
-#'   input.add = 10,
-#'   return.pred.only = TRUE
+#'   input.add = 10
 #' )
 #' }
 #' @export
@@ -984,6 +1005,7 @@ Fit_3cmpt_oral <- function(data,
                            input.q3cmpt,
                            input.q23cmpt,
                            input.add,
+                           ncores = 2,
                            return.pred.only = FALSE,
                            ...) {
 
@@ -1034,7 +1056,7 @@ Fit_3cmpt_oral <- function(data,
 
   if (!user_control) {
     maxSSv <- 100
-    rx_ctrl <- rxControl(maxSS = maxSSv)
+    rx_ctrl <- rxControl(maxSS = maxSSv,cores=ncores)
     ctrl <- switch(
       est.method,
       "rxSolve"  = rx_ctrl,

@@ -20,6 +20,9 @@
 #'   - values: numeric vector
 #' @param route Dosing route, either "iv" or "oral". Default is "iv".
 #'
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
+#'
 #' @param verbose Logical (default = TRUE).
 #'   Controls whether progress information is displayed during parameter sweeping.
 #'   When TRUE, a dynamic progress bar is shown using the `progressr` package to
@@ -63,6 +66,7 @@ sim_sens_1cmpt_mm <- function(dat,
                               sim_vd   = list(mode = "manual", values = NULL),
                               sim_ka   = list(mode = "manual", values = NULL),
                               route = c("iv", "oral"),
+                              ncores = 2,
                               verbose= TRUE) {
   `%>%` <- magrittr::`%>%`
   route <- tryCatch(
@@ -220,7 +224,8 @@ sim_sens_1cmpt_mm <- function(dat,
             input.vmax = Vmax,
             input.km = Km,
             input.vd = Vd,
-            input.add = 0
+            input.add = 0,
+            ncores = ncores
           )))
         } else {
           suppressMessages(suppressWarnings(Fit_1cmpt_mm_oral(
@@ -230,7 +235,8 @@ sim_sens_1cmpt_mm <- function(dat,
             input.vmax = Vmax,
             input.km = Km,
             input.vd = Vd,
-            input.add = 0
+            input.add = 0,
+            ncores = ncores
           )))
         }
 
@@ -293,6 +299,9 @@ sim_sens_1cmpt_mm <- function(dat,
 #'   - values: numeric vector if manual
 #' @param route Dosing route, either "iv" or "oral". Default is "iv".
 #'
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
+#'
 #' @param verbose Logical (default = TRUE).
 #'   Controls whether progress information is displayed during parameter sweeping.
 #'   When TRUE, a dynamic progress bar is shown using the `progressr` package to
@@ -331,6 +340,7 @@ sim_sens_2cmpt <- function(dat,
                              auto.strategy = c("scaled", "fixed")
                            ),
                            route = c("iv", "oral"),
+                           ncores = 2,
                            verbose=TRUE) {
   `%>%` <- magrittr::`%>%`
 
@@ -505,7 +515,8 @@ sim_sens_2cmpt <- function(dat,
             input.vc2cmpt = Vc,
             input.vp2cmpt = Vp,
             input.q2cmpt = Q,
-            input.add = 0
+            input.add = 0,
+            ncores = ncores
           )))
 
         } else {
@@ -517,7 +528,8 @@ sim_sens_2cmpt <- function(dat,
             input.vc2cmpt = Vc,
             input.vp2cmpt = Vp,
             input.q2cmpt = Q,
-            input.add = 0
+            input.add = 0,
+            ncores = ncores
           )))
         }
 
@@ -590,6 +602,9 @@ sim_sens_2cmpt <- function(dat,
 #'   - values: numeric vector
 #' @param route Dosing route, either "iv" or "oral". Default is "iv".
 #'
+#' @param ncores Number of cores to use for parallelization, passed to
+#'   \code{rxControl()}. Default is 2.
+#'
 #' @param verbose Logical (default = TRUE).
 #'   Controls whether progress information is displayed during parameter sweeping.
 #'   When TRUE, a dynamic progress bar is shown using the `progressr` package to
@@ -636,6 +651,7 @@ sim_sens_3cmpt <- function(dat,
                            sim_cl = list(mode = "manual", values = NULL),
                            sim_ka = list(mode = "manual", values = NULL),
                            route = c("iv", "oral"),
+                           ncores = 2,
                            verbose=TRUE) {
   # --- Route check ---
   route <- tryCatch(
@@ -882,9 +898,32 @@ sim_sens_3cmpt <- function(dat,
           Vp2
         ))
         sim_out <- if (route == "iv") {
-          suppressMessages(suppressWarnings(Fit_3cmpt_iv(dat[dat$EVID != 2, ], "rxSolve", CL, Vc, Vp1, Vp2, Q1, Q2, input.add = 0)))
+          suppressMessages(suppressWarnings(
+            Fit_3cmpt_iv(data = dat[dat$EVID != 2, ],
+                         est.method= "rxSolve",
+                         input.cl = CL,
+                         input.vc3cmpt = Vc,
+                         input.vp3cmpt = Vp1,
+                         input.vp23cmpt = Vp2,
+                         input.q3cmpt = Q1,
+                         input.q23cmpt = Q2,
+                         input.add = 0,
+                         ncores = ncores)
+          ))
         } else {
-          suppressMessages(suppressWarnings(Fit_3cmpt_oral(dat[dat$EVID != 2, ], "rxSolve", Ka, CL, Vc, Vp1, Vp2, Q1, Q2, input.add = 0)))
+          suppressMessages(suppressWarnings(
+            Fit_3cmpt_oral(data = dat[dat$EVID != 2, ],
+                           est.method = "rxSolve",
+                           input.ka =  Ka,
+                           input.cl = CL,
+                           input.vc3cmpt =Vc,
+                           input.vp3cmpt =Vp1,
+                           input.vp23cmpt =Vp2,
+                           input.q3cmpt = Q1,
+                           input.q23cmpt =Q2,
+                           input.add = 0,
+                           ncores = ncores)
+          ))
         }
         met <-
           metrics.(pred.x = sim_out$cp, obs.y = dat[dat$EVID == 0,]$DV)

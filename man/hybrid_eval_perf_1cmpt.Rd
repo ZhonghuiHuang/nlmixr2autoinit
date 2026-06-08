@@ -22,6 +22,7 @@ hybrid_eval_perf_1cmpt(
   nca_all_ka,
   nca_all_cl,
   nca_all_vd,
+  ncores = 2,
   verbose = TRUE
 )
 }
@@ -59,6 +60,9 @@ hybrid_eval_perf_1cmpt(
 \item{nca_all_cl}{Numeric; clearance estimated from naive pooled NCA using combined first- and repeated-dose data.}
 
 \item{nca_all_vd}{Numeric; volume of distribution estimated from naive pooled NCA using combined first- and repeated-dose data.}
+
+\item{ncores}{Number of cores to use for parallelization, passed to
+\code{rxControl()}. Default is 2.}
 
 \item{verbose}{Logical; if TRUE (default), displays a textual progress bar during model
 evaluation using the 'progressr' package. Set to FALSE to run

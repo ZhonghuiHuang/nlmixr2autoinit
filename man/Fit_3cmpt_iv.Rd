@@ -14,6 +14,7 @@ Fit_3cmpt_iv(
   input.q3cmpt,
   input.q23cmpt,
   input.add,
+  ncores = 2,
   return.pred.only = FALSE,
   ...
 )
@@ -37,6 +38,9 @@ Fit_3cmpt_iv(
 \item{input.q23cmpt}{Initial estimate of second inter-compartmental clearance (Q2).}
 
 \item{input.add}{Initial estimate of the additive residual error.}
+
+\item{ncores}{Number of cores to use for parallelization, passed to
+\code{rxControl()}. Default is 2.}
 
 \item{return.pred.only}{Logical; if \code{TRUE}, returns a data frame with
 only predicted concentrations (\code{cp}) for all observations in the input data.}

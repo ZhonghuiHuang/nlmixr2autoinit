@@ -13,6 +13,7 @@ Fit_2cmpt_oral(
   input.vp2cmpt,
   input.q2cmpt,
   input.add,
+  ncores = 2,
   return.pred.only = FALSE,
   ...
 )
@@ -34,6 +35,9 @@ Fit_2cmpt_oral(
 \item{input.q2cmpt}{Initial estimate of inter-compartmental clearance (Q).}
 
 \item{input.add}{Initial estimate of the additive residual error.}
+
+\item{ncores}{Number of cores to use for parallelization, passed to
+\code{rxControl()}. Default is 2.}
 
 \item{return.pred.only}{Logical; if \code{TRUE}, returns a data frame with
 only predicted concentrations (\code{cp}) for all observations in the input data.}

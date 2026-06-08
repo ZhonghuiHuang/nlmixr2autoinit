@@ -10,7 +10,8 @@ eval_perf_1cmpt(
   ka = NULL,
   cl = NULL,
   vd = NULL,
-  route = c("bolus", "infusion", "oral")
+  route = c("bolus", "infusion", "oral"),
+  ncores = 2
 )
 }
 \arguments{
@@ -28,6 +29,9 @@ Defaults to using \code{rxSolve} for model simulation and parameter estimation.}
 
 \item{route}{A character string indicating the route of administration.
 Must be one of \code{"oral"}, \code{"infusion"}, or \code{"bolus"}. Defaults to \code{"bolus"}.}
+
+\item{ncores}{Number of cores to use for parallelization, passed to
+\code{rxControl()}. Default is 2.}
 }
 \value{
 A numeric vector containing absolute prediction error, mean absolute error,
