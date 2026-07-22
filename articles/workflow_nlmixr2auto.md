@@ -10,7 +10,7 @@ population PK model development.
 ## Connect to nlmixr2auto
 
 We can directly call `auto_param_table()` to convert the output of
-[`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
 into the parameter table format required by `nlmixr2auto`. This table
 can then be passed to `ppkmodGen()`, the model builder in `nlmixr2auto`,
 which automatically generates a ready-to-fit nlmixr2 model function and
@@ -189,9 +189,9 @@ fit2
 ## See Also
 
 - [Integration with
-  nlmixr2](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)
+  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)
   — manual model building using estimates from
-  [`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+  [`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
 - [Parameter Sweeping and
-  Visualisation](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)
+  Visualisation](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)
   — inspect and visualise the parameter sweep results

@@ -3,16 +3,16 @@
 ### Getting Started
 
 - [Running
-  nlmixr2autoinit](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/running_nlmixr2autoinit.md):
+  nlmixr2autoinit](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/running_nlmixr2autoinit.md):
 
 ### Workflow Tutorials
 
 - [Integration with
-  nlmixr2](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md):
+  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md):
 - [Integration with
-  nlmixr2auto](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md):
+  nlmixr2auto](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md):
 
 ### Method Tutorials
 
 - [Parameter Sweeping and
-  Visualisation](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/parameter_sweeping.md):
+  Visualisation](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/parameter_sweeping.md):

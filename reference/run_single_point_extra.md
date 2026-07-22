@@ -28,9 +28,9 @@ run_single_point_extra(
 
   Optional numeric value representing the elimination half-life of the
   drug. If not provided, half-life is estimated within
-  [`run_single_point_base()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/run_single_point_base.md)
+  [`run_single_point_base()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md)
   using
-  [`get_hf()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_hf.md)
+  [`get_hf()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_hf.md)
   applied to the pharmacokinetic observations.
 
 - single_point_base.lst:
@@ -51,19 +51,19 @@ run_single_point_extra(
   based on whether observed concentrations occur following the first
   administration, during repeated dosing, or across both contexts. This
   parameter is passed directly to
-  [`run_single_point_base()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/run_single_point_base.md).
+  [`run_single_point_base()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md).
 
 - pooled_ctrl:
 
   A list of pooled-analysis control options created using
-  [`pooled_control()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/pooled_control.md).
+  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md).
   These control time binning and time-after-dose rounding when pooled
   summaries are required.
 
 - ssctrl:
 
   A list of steady-state control options created using
-  [`ss_control()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/ss_control.md).
+  [`ss_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ss_control.md).
   These govern assumptions and thresholds used when interpreting
   steady-state behavior in single-point logic.
 
@@ -109,7 +109,7 @@ logic:
 
 - For oral administration, the absorption rate constant (ka) is
   estimated using a solution-based approach implemented in
-  [`run_ka_solution()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/run_ka_solution.md).
+  [`run_ka_solution()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_ka_solution.md).
   Only concentration–time data from the absorption phase are used,
   defined as time after dose (tad) less than 20% of the terminal
   half-life and occurring prior to Tmax, where absorption is the
@@ -123,9 +123,9 @@ concentration-time observations prior to the maximum concentration
 
 ## See also
 
-[`run_single_point_base`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/run_single_point_base.md),
-[`run_single_point`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/run_single_point.md),
-[`run_ka_solution`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/run_ka_solution.md)
+[`run_single_point_base`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md),
+[`run_single_point`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point.md),
+[`run_ka_solution`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_ka_solution.md)
 
 ## Author
 
@@ -166,7 +166,7 @@ run_single_point_extra(
 )
 #> $singlepoint.results
 #>   ka   cl   vd           starttime time.spent
-#> 1 NA 3.04 67.6 2026-06-26 15:56:48      1.377
+#> 1 NA 3.04 67.6 2026-07-22 21:09:32      1.171
 #>                                                         single_point.message
 #> 1 CL and Vd were calculated directly from steady-state and single-dose data.
 #> 

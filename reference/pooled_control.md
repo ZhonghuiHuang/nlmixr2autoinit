@@ -40,7 +40,7 @@ analysis.
 
 ## See also
 
-[get_pooled_data](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+[get_pooled_data](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
 
 ## Examples
 

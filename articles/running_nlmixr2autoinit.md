@@ -68,7 +68,7 @@ Data types
 ## Run an example
 
 Call
-[`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
 with your dataset. The function automatically detects the route of
 administration and data characteristics.
 
@@ -164,7 +164,7 @@ selected automatically.
 
 **Note:** `metrics.rank` ranks all method combinations by predictive
 performance (rank 1 = best), based on the metric specified in
-[`initsControl()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/initsControl.md)
+[`initsControl()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md)
 (default: `rRMSE2`). The combination with rank 1 is used as the
 recommended initial estimates. `min_count` indicates how many metrics
 are simultaneously at their minimum for a given method combination when
@@ -172,9 +172,9 @@ multiple metrics are used as selection criteria.
 
 ## Controlling the Pipeline
 
-[`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
 accepts a `control` argument via
-[`initsControl()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/initsControl.md)
+[`initsControl()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md)
 to customise the pipeline behaviour. For example, you can enable a
 fallback value of $`K_a = 1`$, `nlmixr2autoinit` will assign $`K_a = 1`$
 if the default algorithm is unable to compute it automatically from the
@@ -191,19 +191,19 @@ inits.out <- getPPKinits(
 ```
 
 See
-[`?initsControl`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/initsControl.md)
+[`?initsControl`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md)
 for the full list of options.
 
 ## What’s Next?
 
 - **[Integration with
-  nlmixr2](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)**
+  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)**
   — learn how to pass these initial estimates directly into an `nlmixr2`
   model definition.
 - **[Integration with
-  nlmixr2auto](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)**
+  nlmixr2auto](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)**
   — trigger automated model selection with `nlmixr2auto`.
 - **[Parameter Sweeping and
-  Visualisation](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)**
+  Visualisation](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)**
   — explore how parameter sweeping works and how to visualise the sweep
   results.

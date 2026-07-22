@@ -42,9 +42,9 @@ run_pooled_nca(
 - pooled_ctrl:
 
   Optional list of control parameters used by
-  [`get_pooled_data()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+  [`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
   for pooling observations. Defaults to output from
-  [`pooled_control()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/pooled_control.md).
+  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md).
 
 - nca_ctrl:
 
@@ -64,9 +64,9 @@ specified in `nca_ctrl`.
 
 ## See also
 
-[`get_pooled_data`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
-[`bin.time`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/bin.time.md),
-[`getnca`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getnca.md)
+[`get_pooled_data`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
+[`bin.time`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/bin.time.md),
+[`getnca`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getnca.md)
 
 ## Author
 

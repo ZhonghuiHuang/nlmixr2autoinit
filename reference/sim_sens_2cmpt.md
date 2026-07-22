@@ -98,8 +98,8 @@ sensitivity.
 
 ## See also
 
-[`Fit_2cmpt_iv`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_2cmpt_iv.md),
-[`Fit_2cmpt_oral`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_2cmpt_oral.md)
+[`Fit_2cmpt_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_2cmpt_iv.md),
+[`Fit_2cmpt_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_2cmpt_oral.md)
 
 ## Author
 

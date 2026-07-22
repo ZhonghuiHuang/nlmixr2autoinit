@@ -62,7 +62,7 @@ terminal elimination slope:
 
 ## See also
 
-[find_best_lambdaz](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md)
+[find_best_lambdaz](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md)
 
 ## Author
 

@@ -4,7 +4,7 @@
 
 `nlmixr2autoinit` is designed to slot naturally into the `nlmixr2`
 ecosystem. Once initial estimates are generated with
-[`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md),
+[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md),
 they can be extracted and used to write a model function with the
 initial values pre-filled automatically, ready to pass to `nlmixr2` for
 fitting.
@@ -14,7 +14,7 @@ fitting.
 ## Generating Initial Estimates
 
 The starting point is
-[`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md),
+[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md),
 which analyses the dataset and returns recommended initial estimates:
 
 ``` r
@@ -225,8 +225,8 @@ Print a summary of the model fit results:
 ## See Also
 
 - [Integration with
-  nlmixr2auto](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)
+  nlmixr2auto](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)
   — automated model selection using `nlmixr2auto`
 - [Parameter Sweeping and
-  Visualisation](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)
+  Visualisation](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)
   — inspect and visualise the parameter sweep results
