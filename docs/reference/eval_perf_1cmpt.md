@@ -13,7 +13,8 @@ eval_perf_1cmpt(
   ka = NULL,
   cl = NULL,
   vd = NULL,
-  route = c("bolus", "infusion", "oral")
+  route = c("bolus", "infusion", "oral"),
+  ncores = 2
 )
 ```
 
@@ -46,6 +47,11 @@ eval_perf_1cmpt(
   A character string indicating the route of administration. Must be one
   of `"oral"`, `"infusion"`, or `"bolus"`. Defaults to `"bolus"`.
 
+- ncores:
+
+  Number of cores to use for parallelization, passed to `rxControl()`.
+  Default is 2.
+
 ## Value
 
 A numeric vector containing absolute prediction error, mean absolute
@@ -56,31 +62,30 @@ relative root mean square error.
 
 Internally selects the appropriate one-compartment model fitting
 function, using
-[`Fit_1cmpt_oral()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md)
+[`Fit_1cmpt_oral()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md)
 for oral administration and
-[`Fit_1cmpt_iv()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_1cmpt_iv.md)
+[`Fit_1cmpt_iv()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_iv.md)
 for intravenous administration. Predictive performance is quantified
 using the
-[`metrics.()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/metrics..md)
+[`metrics.()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/metrics..md)
 function.
 
 ## See also
 
-[`Fit_1cmpt_oral`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md),
-[`Fit_1cmpt_iv`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_1cmpt_iv.md),
-[`metrics.`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/metrics..md)
+[`Fit_1cmpt_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md),
+[`Fit_1cmpt_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_iv.md),
+[`metrics.`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/metrics..md)
 
 ## Examples
 
 ``` r
 eval_perf_1cmpt(
-  dat = Oral_1CPT,
+  dat = pheno_sd,
   est.method = "rxSolve",
-  ka = 1,
-  cl = 4,
-  vd = 70,
-  route = "oral"
+  cl = 0.006,
+  vd = 1,
+  route = "bolus"
 )
-#>        APE        MAE       MAPE       RMSE     rRMSE1     rRMSE2 
-#> 921381.710    132.630     75.620    230.715     45.693     48.466 
+#>      APE      MAE     MAPE     RMSE   rRMSE1   rRMSE2 
+#> 1928.878   12.444   51.833   22.003   86.028   45.394 
 ```

@@ -72,11 +72,11 @@ ss_control(
 
 A named list containing the steady-state control parameters, typically
 passed as the ssctrl argument to
-[`is_ss()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/is_ss.md).
+[`is_ss()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/is_ss.md).
 
 ## See also
 
-[is_ss](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/is_ss.md)
+[is_ss](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/is_ss.md)
 
 ## Examples
 

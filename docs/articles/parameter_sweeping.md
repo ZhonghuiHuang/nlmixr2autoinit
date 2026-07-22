@@ -7,8 +7,8 @@ estimates for model structures that cannot be solved analytically from
 one-compartment PK analysis, specifically:
 
 - **Multi-compartment models** (2-compartment and 3-compartment)
-- **Nonlinear elimination models** (Michaelis-Menten kinetics: $V_{max}$
-  and $K_{m}$)
+- **Nonlinear elimination models** (Michaelis-Menten kinetics:
+  $`V_{max}`$ and $`K_m`$)
 
 This vignette explains how to run parameter sweeping independently and
 how to visualise the sweep results to understand the parameter space.
@@ -16,14 +16,14 @@ how to visualise the sweep results to understand the parameter space.
 ## Running Parameter Sweeping
 
 We can bypass the automated base parameter calculation from
-`nlmixr2autoinit` and instead specify $CL$, $V_{d}$, and $K_{a}$
+`nlmixr2autoinit` and instead specify $`CL`$, $`V_d`$, and $`K_a`$
 directly. This is useful when we are only interested in exploring the
-complex model parameters such as $V_{max}$ and $K_{m}$, without
+complex model parameters such as $`V_{max}`$ and $`K_m`$, without
 re-running the full estimation pipeline.
 
 For example,
-[`sim_sens_1cmpt_mm()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/sim_sens_1cmpt_mm.md)
-then performs the sweep for $V_{max}$ and $K_{m}$ in a one-compartment
+[`sim_sens_1cmpt_mm()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/sim_sens_1cmpt_mm.md)
+then performs the sweep for $`V_{max}`$ and $`K_m`$ in a one-compartment
 model with Michaelis-Menten elimination for IV data.
 
 ``` r
@@ -43,7 +43,7 @@ out1 <- sim_sens_1cmpt_mm(
 We can inspect the first few rows of the simulated output and see that
 multiple goodness-of-fit metrics are returned for each parameter
 combination. Definitions of these metrics are provided in
-[`?metrics.`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/metrics..md).
+[`?metrics.`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/metrics..md).
 
 Here we focus on `rRMSE2`, the symmetric relative root mean squared
 error, which normalizes each predicted–observed difference by the mean
@@ -76,9 +76,9 @@ head(out1)
 ## Visualising Sweep Results
 
 We can visualize the sweep results as a heatmap to examine how model fit
-changes across combinations of $V_{max}$ and $K_{m}$, with lower
+changes across combinations of $`V_{max}`$ and $`K_m`$, with lower
 `rRMSE2` indicating better fit. In this example, the optimal parameter
-combination is identified at $V_{max} = 1000mg/h$ and $K_{m} = 200mg/L$,
+combination is identified at $`V_{max}=1000 mg/h`$ and $`K_m=200 mg/L`$,
 which gives the lowest `rRMSE2` among all tested values.
 
 ``` r
@@ -116,9 +116,9 @@ print(p1)
 ## See Also
 
 - [Integration with
-  nlmixr2](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)
+  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)
   — manual model building using estimates from
-  [`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+  [`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
 - [Integration with
-  nlmixr2auto](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)
+  nlmixr2auto](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)
   — automated model selection using `nlmixr2auto`

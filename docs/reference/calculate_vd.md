@@ -26,7 +26,7 @@ calculate_vd(
 
   Optional numeric value for the drug's half-life. If not provided, it
   will be estimated using
-  [`get_hf()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_hf.md)
+  [`get_hf()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_hf.md)
   from pooled observations.
 
 - dose_type:
@@ -40,9 +40,9 @@ calculate_vd(
 - pooled_ctrl:
 
   Optional list of control parameters used by
-  [`get_pooled_data()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+  [`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
   for pooling observations. Defaults to output from
-  [`pooled_control()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/pooled_control.md).
+  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md).
 
 - route:
 
@@ -75,15 +75,15 @@ the actual infusion duration.
 
 When half_life is not provided, it is estimated from pooled data using
 the functions
-[`get_pooled_data()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+[`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
 and
-[`get_hf()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_hf.md).
+[`get_hf()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_hf.md).
 
 ## See also
 
-[get_pooled_data](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
-[get_hf](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_hf.md),
-[trimmed_geom_mean](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/trimmed_geom_mean.md)
+[get_pooled_data](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
+[get_hf](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_hf.md),
+[trimmed_geom_mean](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/trimmed_geom_mean.md)
 
 ## Author
 

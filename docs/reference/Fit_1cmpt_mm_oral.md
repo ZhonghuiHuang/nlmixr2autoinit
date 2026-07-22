@@ -17,6 +17,7 @@ Fit_1cmpt_mm_oral(
   input.km,
   input.vd,
   input.add,
+  ncores = 2,
   return.pred.only = FALSE,
   ...
 )
@@ -53,6 +54,11 @@ Fit_1cmpt_mm_oral(
 
   Initial estimate of the additive residual error.
 
+- ncores:
+
+  Number of cores to use for parallelization, passed to `rxControl()`.
+  Default is 2.
+
 - return.pred.only:
 
   Logical; if `TRUE`, returns a data frame with only predicted
@@ -78,51 +84,46 @@ Zhonghui Huang
 ``` r
  # \donttest{
 dat <- Oral_1CPTMM
-# Fit using 'nls'
+# Run simulation
 Fit_1cmpt_mm_oral(
   data = dat,
-  est.method = "nls",
+  est.method = "rxSolve",
   input.ka = 1,
   input.vmax = 1000,
   input.km = 250,
   input.vd = 70,
   input.add = 10
 )
-#> ── nlmixr² nls with LM algorithm ──
-#> 
-#>           OBJF        AIC        BIC Log-likelihood Condition#(Cov)
-#> Pop 5503432579 5503445379 5503445413    -2751722684        1496.186
-#>     Condition#(Cor)
-#> Pop        203.2179
-#> 
-#> ── Time (sec value$time): ──
-#> 
-#>            setup table compress    other
-#> elapsed 0.042501 0.105    0.008 3.428499
-#> 
-#> ── (value$parFixed or value$parFixedDf): ──
-#> 
-#>            Est.        SE     %RSE Back-transformed(95%CI) BSV(SD) Shrink(SD)%
-#> tka     -0.1394  0.000243   0.1743 0.8699 (0.8695, 0.8703)                    
-#> lvmax     6.956 0.0001296 0.001863       1050 (1050, 1050)                    
-#> lkm       5.864 0.0003416 0.005825      352 (351.8, 352.2)                    
-#> tv        4.192 4.439e-05 0.001059    66.15 (66.14, 66.15)                    
-#> add.err   889.4                                      889.4                    
-#>  
-#>   Covariance Type (value$covMethod): r (LM)
-#>   Censoring (value$censInformation): No censoring
-#>   Minimization message (value$message):  
-#>     Relative error in the sum of squares is at most `ftol'. 
-#> 
-#> ── Fit Data (object value is a modified tibble): ──
-#> # A tibble: 6,960 × 16
-#>   ID     EVID  TIME    DV IPRED   IRES    IWRES    cp depot centre    ka  vmax
-#>   <fct> <int> <dbl> <dbl> <dbl>  <dbl>    <dbl> <dbl> <dbl>  <dbl> <dbl> <dbl>
-#> 1 1         0  0.25  27.4  29.4  -1.99 -0.00223  29.4 8045.  1944. 0.870 1050.
-#> 2 1         0  0.5   32.1  52.7 -20.6  -0.0232   52.7 6473.  3489. 0.870 1050.
-#> 3 1         0  0.75  93.5  71.3  22.2   0.0250   71.3 5208.  4714. 0.870 1050.
-#> # ℹ 6,957 more rows
-#> # ℹ 4 more variables: km <dbl>, v <dbl>, tad <dbl>, dosenum <dbl>
+#> ── Solved rxode2 object ──
+#> ── Parameters (value$params): ──
+#> # A tibble: 120 × 6
+#>    id      tka lvmax   lkm    tv add.err
+#>    <fct> <dbl> <dbl> <dbl> <dbl>   <dbl>
+#>  1 1         0  6.91  5.52  4.25      10
+#>  2 2         0  6.91  5.52  4.25      10
+#>  3 3         0  6.91  5.52  4.25      10
+#>  4 4         0  6.91  5.52  4.25      10
+#>  5 5         0  6.91  5.52  4.25      10
+#>  6 6         0  6.91  5.52  4.25      10
+#>  7 7         0  6.91  5.52  4.25      10
+#>  8 8         0  6.91  5.52  4.25      10
+#>  9 9         0  6.91  5.52  4.25      10
+#> 10 10        0  6.91  5.52  4.25      10
+#> # ℹ 110 more rows
+#> ── Initial Conditions (value$inits): ──
+#>  depot centre 
+#>      0      0 
+#> ── First part of data (object): ──
+#> # A tibble: 6,960 × 12
+#>      id  evid  time    ka  vmax    km     v    cp ipredSim   sim depot centre
+#>   <int> <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl>  <dbl>
+#> 1     1     0  0.25     1 1002.  250.  70.1  31.3     31.3  44.7 7788.  2197.
+#> 2     1     0  0.5      1 1002.  250.  70.1  55.4     55.4  53.9 6065.  3882.
+#> 3     1     0  0.75     1 1002.  250.  70.1  73.8     73.8  71.0 4724.  5172.
+#> 4     1     0  1        1 1002.  250.  70.1  87.8     87.8  94.9 3679.  6156.
+#> 5     1     0  1.5      1 1002.  250.  70.1 106.     106.   93.6 2231.  7462.
+#> 6     1     0  2        1 1002.  250.  70.1 117.     117.  123.  1353.  8185.
+#> # ℹ 6,954 more rows
 # Return only predicted concentrations
 Fit_1cmpt_mm_oral(
   data = dat,
@@ -156,12 +157,12 @@ Fit_1cmpt_mm_oral(
 #> # A tibble: 6,960 × 12
 #>      id  evid  time    ka  vmax    km     v    cp ipredSim   sim depot centre
 #>   <int> <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl>  <dbl>
-#> 1     1     0  0.25     1 1002.  250.  70.1  31.3     31.3  39.2 7788.  2197.
-#> 2     1     0  0.5      1 1002.  250.  70.1  55.4     55.4  52.2 6065.  3882.
-#> 3     1     0  0.75     1 1002.  250.  70.1  73.8     73.8  80.4 4724.  5172.
-#> 4     1     0  1        1 1002.  250.  70.1  87.8     87.8  89.5 3679.  6156.
-#> 5     1     0  1.5      1 1002.  250.  70.1 106.     106.   86.0 2231.  7462.
-#> 6     1     0  2        1 1002.  250.  70.1 117.     117.  136.  1353.  8185.
+#> 1     1     0  0.25     1 1002.  250.  70.1  31.3     31.3  29.7 7788.  2197.
+#> 2     1     0  0.5      1 1002.  250.  70.1  55.4     55.4  49.8 6065.  3882.
+#> 3     1     0  0.75     1 1002.  250.  70.1  73.8     73.8  72.9 4724.  5172.
+#> 4     1     0  1        1 1002.  250.  70.1  87.8     87.8  95.0 3679.  6156.
+#> 5     1     0  1.5      1 1002.  250.  70.1 106.     106.  105.  2231.  7462.
+#> 6     1     0  2        1 1002.  250.  70.1 117.     117.  120.  1353.  8185.
 #> # ℹ 6,954 more rows
 # }
 ```

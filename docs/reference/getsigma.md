@@ -47,7 +47,7 @@ residual unexplained variability (RUV).
 
 ## See also
 
-[getsigmas](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getsigmas.md)
+[getsigmas](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getsigmas.md)
 
 ## Author
 

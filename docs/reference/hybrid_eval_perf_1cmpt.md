@@ -27,6 +27,7 @@ hybrid_eval_perf_1cmpt(
   nca_all_ka,
   nca_all_cl,
   nca_all_vd,
+  ncores = 2,
   verbose = TRUE
 )
 ```
@@ -110,6 +111,11 @@ hybrid_eval_perf_1cmpt(
   Numeric; volume of distribution estimated from naive pooled NCA using
   combined first- and repeated-dose data.
 
+- ncores:
+
+  Number of cores to use for parallelization, passed to `rxControl()`.
+  Default is 2.
+
 - verbose:
 
   Logical; if TRUE (default), displays a textual progress bar during
@@ -125,14 +131,14 @@ values.
 ## Examples
 
 ``` r
-dat <- Bolus_1CPT
+dat <- Oral_1CPT[Oral_1CPT$ID<11,]
 # Example parameter estimates from different methods
 sp_out_ka <- 1.2; sp_out_cl <- 3.5; sp_out_vd <- 50
 graph_out_ka <- 1.1; graph_out_cl <- 3.6; graph_out_vd <- 52
 nca_fd_ka <- 1.3; nca_fd_cl <- 3.4; nca_fd_vd <- 49
 nca_efd_ka <- NA;  nca_efd_cl <- NA;  nca_efd_vd <- NA
 nca_all_ka <- 1.25; nca_all_cl <- 3.55; nca_all_vd <- 51
-# Run hybrid evaluation (silent)
+# Run hybrid evaluation
  hybrid_eval_perf_1cmpt(
   route = "oral",
   dat = dat,
@@ -143,14 +149,14 @@ nca_all_ka <- 1.25; nca_all_cl <- 3.55; nca_all_vd <- 51
   nca_all_ka = nca_all_ka, nca_all_cl = nca_all_cl, nca_all_vd = nca_all_vd,
   verbose = FALSE
 )
-#>   ka_source cl_source vd_source ka_value cl_value vd_value     APE     MAE
-#> 1   simpcal   simpcal   simpcal     1.20     3.50       50 1434780 206.413
-#> 2     graph     graph     graph     1.10     3.60       52 1424299 204.906
-#> 3    nca_fd    nca_fd    nca_fd     1.30     3.40       49 1452438 208.954
-#> 4   nca_all   nca_all   nca_all     1.25     3.55       51 1407249 202.453
+#>   ka_source cl_source vd_source ka_value cl_value vd_value      APE     MAE
+#> 1   simpcal   simpcal   simpcal     1.20     3.50       50 136681.9 237.295
+#> 2     graph     graph     graph     1.10     3.60       52 125045.5 217.093
+#> 3    nca_fd    nca_fd    nca_fd     1.30     3.40       49 146998.2 255.205
+#> 4   nca_all   nca_all   nca_all     1.25     3.55       51 133702.2 232.122
 #>     MAPE    RMSE rRMSE1 rRMSE2
-#> 1 63.235 363.167 58.743 54.581
-#> 2 62.148 367.619 59.463 54.864
-#> 3 66.146 361.330 58.446 54.361
-#> 4 61.619 358.910 58.055 54.249
+#> 1 84.949 392.750 78.951 61.822
+#> 2 80.921 358.673 72.101 60.204
+#> 3 90.650 421.578 84.746 63.035
+#> 4 83.129 384.535 77.300 61.539
 ```

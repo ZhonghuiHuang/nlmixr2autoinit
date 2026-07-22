@@ -60,7 +60,7 @@ calculated to assess performance.
 
 ## See also
 
-[`Fit_1cmpt_oral`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md)
+[`Fit_1cmpt_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md)
 
 ## Author
 

@@ -67,7 +67,7 @@ Data types
 ## Run an example
 
 Call
-[`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
 with your dataset. The function automatically detects the route of
 administration and data characteristics.
 
@@ -121,27 +121,27 @@ outs$Recommended_initial_estimates
 through the pipeline. To access any component, use
 `<outname>$Run.history$<component>`.
 
-| Component           | Description                                                                                 |
-|---------------------|---------------------------------------------------------------------------------------------|
-| `$base.out`         | Method combinations and performance metrics for base PK parameters ($K_{a}$, $CL$, $V_{d}$) |
-| `$sim.2cmpt`        | Simulated parameters for 2-compartment models                                               |
-| `$sim.3cmpt`        | Simulated parameters for 3-compartment models                                               |
-| `$sim.vmax.km`      | Simulated $V_{max}$ and $K_{m}$ values                                                      |
-| `$single.point.out` | Results from single-point estimation methods                                                |
-| `$nca.out`          | Results from NCA-based estimation                                                           |
-| `$ka.wanger.nelson` | Results from Wagner-Nelson method for $K_{a}$ estimation                                    |
-| `$graph.out`        | Results from graphical estimation methods                                                   |
-| `$sigma.out`        | Results from residual variability estimation                                                |
+| Component | Description |
+|----|----|
+| `$base.out` | Method combinations and performance metrics for base PK parameters ($`K_a`$, $`CL`$, $`V_d`$) |
+| `$sim.2cmpt` | Simulated parameters for 2-compartment models |
+| `$sim.3cmpt` | Simulated parameters for 3-compartment models |
+| `$sim.vmax.km` | Simulated $`V_{max}`$ and $`K_m`$ values |
+| `$single.point.out` | Results from single-point estimation methods |
+| `$nca.out` | Results from NCA-based estimation |
+| `$ka.wanger.nelson` | Results from Wagner-Nelson method for $`K_a`$ estimation |
+| `$graph.out` | Results from graphical estimation methods |
+| `$sigma.out` | Results from residual variability estimation |
 
-For example, the estimation details for the base PK parameters ($CL$,
-$V_{d}$, and $K_{a}$) can be accessed via:
+For example, the estimation details for the base PK parameters ($`CL`$,
+$`V_d`$, and $`K_a`$) can be accessed via:
 
 ``` r
 outs$Run.history$base.out
 ```
 
 We can see that each row represents a unique combination of estimation
-methods for $K_{a}$, $CL$, and $V_{d}$, and how each combination
+methods for $`K_a`$, $`CL`$, and $`V_d`$, and how each combination
 performs when the resulting parameters are used to predict the observed
 concentration–time data allowing the best-performing combination to be
 selected automatically.
@@ -159,7 +159,7 @@ selected automatically.
 
 **Note:** `metrics.rank` ranks all method combinations by predictive
 performance (rank 1 = best), based on the metric specified in
-[`initsControl()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/initsControl.md)
+[`initsControl()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md)
 (default: `rRMSE2`). The combination with rank 1 is used as the
 recommended initial estimates. `min_count` indicates how many metrics
 are simultaneously at their minimum for a given method combination when
@@ -167,11 +167,11 @@ multiple metrics are used as selection criteria.
 
 ## Controlling the Pipeline
 
-[`getPPKinits()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
 accepts a `control` argument via
-[`initsControl()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/initsControl.md)
+[`initsControl()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md)
 to customise the pipeline behaviour. For example, you can enable a
-fallback value of $K_{a} = 1$, `nlmixr2autoinit` will assign $K_{a} = 1$
+fallback value of $`K_a = 1`$, `nlmixr2autoinit` will assign $`K_a = 1`$
 if the default algorithm is unable to compute it automatically from the
 dataset:
 
@@ -185,19 +185,19 @@ inits.out <- getPPKinits(
 ```
 
 See
-[`?initsControl`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/initsControl.md)
+[`?initsControl`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md)
 for the full list of options.
 
 ## What’s Next?
 
 - **[Integration with
-  nlmixr2](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)**
+  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)**
   — learn how to pass these initial estimates directly into an `nlmixr2`
   model definition.
 - **[Integration with
-  nlmixr2auto](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)**
+  nlmixr2auto](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)**
   — trigger automated model selection with `nlmixr2auto`.
 - **[Parameter Sweeping and
-  Visualisation](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)**
+  Visualisation](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)**
   — explore how parameter sweeping works and how to visualise the sweep
   results.

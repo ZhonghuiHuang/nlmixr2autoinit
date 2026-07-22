@@ -68,9 +68,9 @@ The function estimates terminal half-life using the following procedure:
 
 ## See also
 
-[get_pooled_data](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
-[bin.time](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/bin.time.md),
-[find_best_lambdaz](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md)
+[get_pooled_data](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
+[bin.time](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/bin.time.md),
+[find_best_lambdaz](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md)
 
 ## Author
 

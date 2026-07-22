@@ -13,6 +13,7 @@ sim_sens_1cmpt_mm(
   sim_vd = list(mode = "manual", values = NULL),
   sim_ka = list(mode = "manual", values = NULL),
   route = c("iv", "oral"),
+  ncores = 2,
   verbose = TRUE
 )
 ```
@@ -62,6 +63,11 @@ sim_sens_1cmpt_mm(
 
   Dosing route, either "iv" or "oral". Default is "iv".
 
+- ncores:
+
+  Number of cores to use for parallelization, passed to `rxControl()`.
+  Default is 2.
+
 - verbose:
 
   Logical (default = TRUE). Controls whether progress information is
@@ -83,8 +89,8 @@ computed for each simulation to assess parameter sensitivity.
 
 ## See also
 
-[`Fit_1cmpt_mm_iv`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_iv.md),
-[`Fit_1cmpt_mm_oral`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_oral.md)
+[`Fit_1cmpt_mm_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_iv.md),
+[`Fit_1cmpt_mm_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_oral.md)
 
 ## Author
 

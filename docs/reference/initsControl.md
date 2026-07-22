@@ -64,10 +64,10 @@ A named list combining all control modules for parameter estimation.
 
 ## See also
 
-[ss_control](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/ss_control.md),
-[pooled_control](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/pooled_control.md),
-[nca_control](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/nca_control.md),
-[fallback_control](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/fallback_control.md)
+[ss_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ss_control.md),
+[pooled_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md),
+[nca_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/nca_control.md),
+[fallback_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/fallback_control.md)
 
 ## Examples
 

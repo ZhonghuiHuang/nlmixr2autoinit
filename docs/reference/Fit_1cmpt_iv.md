@@ -15,6 +15,7 @@ Fit_1cmpt_iv(
   input.cl,
   input.vd,
   input.add,
+  ncores = 2,
   return.pred.only = FALSE,
   ...
 )
@@ -43,6 +44,11 @@ Fit_1cmpt_iv(
 
   Initial estimate of the additive residual error.
 
+- ncores:
+
+  Number of cores to use for parallelization, passed to `rxControl()`.
+  Default is 2.
+
 - return.pred.only:
 
   Logical; if `TRUE`, returns a data frame with only predicted
@@ -68,47 +74,44 @@ Zhonghui Huang
 ``` r
  # \donttest{
 dat <- Bolus_1CPT
-# Fit using 'nls' with default control
+# Run simulation
 Fit_1cmpt_iv(
   data = dat,
-  est.method = "nls",
+  est.method = "rxSolve",
   input.cl = 4,
   input.vd = 70,
   input.add = 1
 )
-#> ── nlmixr² nls with LM algorithm ──
-#> 
-#>          OBJF       AIC       BIC Log-likelihood Condition#(Cov)
-#> Pop 518958748 518971529 518971550     -259485762        2.289302
-#>     Condition#(Cor)
-#> Pop        2.244467
-#> 
-#> ── Time (sec value$time): ──
-#> 
-#>            setup table compress    other
-#> elapsed 0.053234 0.079    0.014 2.736766
-#> 
-#> ── (value$parFixed or value$parFixedDf): ──
-#> 
-#>          Est.        SE     %RSE Back-transformed(95%CI) BSV(SD) Shrink(SD)%
-#> tcl      1.34 4.631e-05 0.003457    3.818 (3.817, 3.818)                    
-#> tv       4.15 5.055e-05 0.001218    63.45 (63.45, 63.46)                    
-#> add.err 273.2                                      273.2                    
-#>  
-#>   Covariance Type (value$covMethod): r (LM)
-#>   Censoring (value$censInformation): No censoring
-#>   Minimization message (value$message):  
-#>     Relative error in the sum of squares is at most `ftol'. 
-#> 
-#> ── Fit Data (object value is a modified tibble): ──
-#> # A tibble: 6,960 × 14
-#>   ID     EVID  TIME    DV IPRED  IRES   IWRES    cp centre    cl     v      k
-#>   <fct> <int> <dbl> <dbl> <dbl> <dbl>   <dbl> <dbl>  <dbl> <dbl> <dbl>  <dbl>
-#> 1 1         0  0.25 1126.  931. 195.   0.712   931. 59104.  3.82  63.5 0.0602
-#> 2 1         0  0.5   870.  918. -47.7 -0.174   918. 58222.  3.82  63.5 0.0602
-#> 3 1         0  0.75  884.  904. -20.3 -0.0741  904. 57353.  3.82  63.5 0.0602
-#> # ℹ 6,957 more rows
-#> # ℹ 2 more variables: tad <dbl>, dosenum <dbl>
+#> ── Solved rxode2 object ──
+#> ── Parameters (value$params): ──
+#> # A tibble: 120 × 4
+#>    id      tcl    tv add.err
+#>    <fct> <dbl> <dbl>   <dbl>
+#>  1 1      1.39  4.25       1
+#>  2 2      1.39  4.25       1
+#>  3 3      1.39  4.25       1
+#>  4 4      1.39  4.25       1
+#>  5 5      1.39  4.25       1
+#>  6 6      1.39  4.25       1
+#>  7 7      1.39  4.25       1
+#>  8 8      1.39  4.25       1
+#>  9 9      1.39  4.25       1
+#> 10 10     1.39  4.25       1
+#> # ℹ 110 more rows
+#> ── Initial Conditions (value$inits): ──
+#> centre 
+#>      0 
+#> ── First part of data (object): ──
+#> # A tibble: 6,960 × 10
+#>      id  evid  time    cl     v      k    cp ipredSim   sim centre
+#>   <int> <int> <dbl> <dbl> <dbl>  <dbl> <dbl>    <dbl> <dbl>  <dbl>
+#> 1     1     0  0.25  4.01  70.1 0.0573  844.     844.  844. 59147.
+#> 2     1     0  0.5   4.01  70.1 0.0573  832.     832.  833. 58306.
+#> 3     1     0  0.75  4.01  70.1 0.0573  820.     820.  821. 57477.
+#> 4     1     0  1     4.01  70.1 0.0573  808.     808.  807. 56660.
+#> 5     1     0  1.5   4.01  70.1 0.0573  785.     785.  785. 55061.
+#> 6     1     0  2     4.01  70.1 0.0573  763.     763.  761. 53507.
+#> # ℹ 6,954 more rows
 # Return only predicted concentrations
 Fit_1cmpt_iv(
  data = dat,

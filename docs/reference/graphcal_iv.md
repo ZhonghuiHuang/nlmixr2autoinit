@@ -24,7 +24,7 @@ graphcal_iv(dat, dose = 1, ...)
 - ...:
 
   Additional arguments passed to
-  [`force_find_lambdaz()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md).
+  [`force_find_lambdaz()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md).
 
 ## Value
 
@@ -33,13 +33,13 @@ A list containing graphical estimates of CL, Vd, lambda_z, and C0exp.
 ## Details
 
 Terminal slope (lambdaz) is estimated using
-[`force_find_lambdaz()`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md),
+[`force_find_lambdaz()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md),
 which applies an automated phase selection strategy with fallback
 regression when required.
 
 ## See also
 
-[`force_find_lambdaz`](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md)
+[`force_find_lambdaz`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md)
 
 ## Author
 

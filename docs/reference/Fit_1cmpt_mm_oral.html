@@ -13,7 +13,7 @@ returns only predicted concentrations to reduce memory use in simulation workflo
 
     <a class="navbar-brand me-2" href="../index.html">nlmixr2autoinit</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,6 +66,7 @@ returns only predicted concentrations to reduce memory use in simulation workflo
 <span>  <span class="va">input.km</span>,</span>
 <span>  <span class="va">input.vd</span>,</span>
 <span>  <span class="va">input.add</span>,</span>
+<span>  ncores <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  return.pred.only <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -104,6 +105,11 @@ returns only predicted concentrations to reduce memory use in simulation workflo
 <dd><p>Initial estimate of the additive residual error.</p></dd>
 
 
+<dt id="arg-ncores">ncores<a class="anchor" aria-label="anchor" href="#arg-ncores"></a></dt>
+<dd><p>Number of cores to use for parallelization, passed to
+<code>rxControl()</code>. Default is 2.</p></dd>
+
+
 <dt id="arg-return-pred-only">return.pred.only<a class="anchor" aria-label="anchor" href="#arg-return-pred-only"></a></dt>
 <dd><p>Logical; if <code>TRUE</code>, returns a data frame with
 only predicted concentrations (<code>cp</code>) for all observations in the input data.</p></dd>
@@ -129,51 +135,46 @@ Otherwise, returns a fitted model object produced by nlmixr2.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span> <span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">Oral_1CPTMM</span></span></span>
-<span class="r-in"><span><span class="co"># Fit using 'nls'</span></span></span>
+<span class="r-in"><span><span class="co"># Run simulation</span></span></span>
 <span class="r-in"><span><span class="fu">Fit_1cmpt_mm_oral</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  data <span class="op">=</span> <span class="va">dat</span>,</span></span>
-<span class="r-in"><span>  est.method <span class="op">=</span> <span class="st">"nls"</span>,</span></span>
+<span class="r-in"><span>  est.method <span class="op">=</span> <span class="st">"rxSolve"</span>,</span></span>
 <span class="r-in"><span>  input.ka <span class="op">=</span> <span class="fl">1</span>,</span></span>
 <span class="r-in"><span>  input.vmax <span class="op">=</span> <span class="fl">1000</span>,</span></span>
 <span class="r-in"><span>  input.km <span class="op">=</span> <span class="fl">250</span>,</span></span>
 <span class="r-in"><span>  input.vd <span class="op">=</span> <span class="fl">70</span>,</span></span>
 <span class="r-in"><span>  input.add <span class="op">=</span> <span class="fl">10</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── </span><span style="color: #0000BB; font-weight: bold;">nlmix</span><span style="color: #BB0000; font-weight: bold;">r²</span><span style="font-weight: bold;"> </span><span style="color: #BBBB00; font-weight: bold;">nls</span><span style="font-weight: bold;"> with </span><span style="color: #BBBB00; font-weight: bold;">LM</span><span style="font-weight: bold;"> algorithm ──</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           OBJF        AIC        BIC Log-likelihood Condition#(Cov)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pop 5503432579 5503445379 5503445413    -2751722684        1496.186</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Condition#(Cor)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pop        203.2179</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── Time (sec </span><span style="color: #BBBB00; font-weight: bold;">value</span><span style="color: #0000BB; font-weight: bold;">$time</span><span style="font-weight: bold;">): ──</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            setup table compress    other</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> elapsed 0.042501 0.105    0.008 3.428499</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── (</span><span style="color: #BBBB00; font-weight: bold;">value</span><span style="color: #0000BB; font-weight: bold;">$parFixed</span><span style="font-weight: bold;"> or </span><span style="color: #BBBB00; font-weight: bold;">value</span><span style="color: #0000BB; font-weight: bold;">$parFixedDf</span><span style="font-weight: bold;">): ──</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            <span style="font-weight: bold;">Est.</span>        <span style="font-weight: bold;">SE</span>     <span style="font-weight: bold;">%RSE</span> <span style="font-weight: bold;">Back-transformed(95%CI)</span> <span style="font-weight: bold;">BSV(SD)</span> <span style="font-weight: bold;">Shrink(SD)%</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">tka</span>     -0.1394  0.000243   0.1743 0.8699 (0.8695, 0.8703)                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">lvmax</span>     6.956 0.0001296 0.001863       1050 (1050, 1050)                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">lkm</span>       5.864 0.0003416 0.005825      352 (351.8, 352.2)                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">tv</span>        4.192 4.439e-05 0.001059    66.15 (66.14, 66.15)                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">add.err</span>   889.4                                      889.4                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Covariance Type (<span style="color: #BBBB00;">value</span><span style="color: #0000BB; font-weight: bold;">$covMethod</span>): <span style="font-weight: bold;">r (LM)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Censoring (<span style="color: #BBBB00;">value</span><span style="color: #0000BB; font-weight: bold;">$censInformation</span>): No censoring</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Minimization message (<span style="color: #BBBB00;">value</span><span style="color: #0000BB; font-weight: bold;">$message</span>):  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Relative error in the sum of squares is at most `ftol'. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── Fit Data (object </span><span style="color: #BBBB00; font-weight: bold;">value</span><span style="font-weight: bold;"> is a modified </span><span style="color: #0000BB; font-weight: bold;">tibble</span><span style="font-weight: bold;">): ──</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,960 × 16</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ID     EVID  TIME    DV IPRED   IRES    IWRES    cp depot centre    ka  vmax</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1         0  0.25  27.4  29.4  -<span style="color: #BB0000;">1.99</span> -<span style="color: #BB0000;">0.002</span><span style="color: #BB0000; text-decoration: underline;">23</span>  29.4 <span style="text-decoration: underline;">8</span>045.  <span style="text-decoration: underline;">1</span>944. 0.870 <span style="text-decoration: underline;">1</span>050.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1         0  0.5   32.1  52.7 -<span style="color: #BB0000;">20.6</span>  -<span style="color: #BB0000;">0.023</span><span style="color: #BB0000; text-decoration: underline;">2</span>   52.7 <span style="text-decoration: underline;">6</span>473.  <span style="text-decoration: underline;">3</span>489. 0.870 <span style="text-decoration: underline;">1</span>050.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 1         0  0.75  93.5  71.3  22.2   0.025<span style="text-decoration: underline;">0</span>   71.3 <span style="text-decoration: underline;">5</span>208.  <span style="text-decoration: underline;">4</span>714. 0.870 <span style="text-decoration: underline;">1</span>050.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,957 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 more variables: km &lt;dbl&gt;, v &lt;dbl&gt;, tad &lt;dbl&gt;, dosenum &lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── Solved rxode2 object ──</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── Parameters (</span><span style="color: #BBBB00; font-weight: bold;">value</span><span style="color: #0000BB; font-weight: bold;">$params</span><span style="font-weight: bold;">): ──</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 120 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id      tka lvmax   lkm    tv add.err</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 3         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 4         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 5         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 6         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 7         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 8         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 9         0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10        0  6.91  5.52  4.25      10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 110 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── Initial Conditions (</span><span style="color: #BBBB00; font-weight: bold;">value</span><span style="color: #0000BB; font-weight: bold;">$inits</span><span style="font-weight: bold;">): ──</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  depot centre </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      0      0 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">── First part of data (object): ──</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,960 × 12</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      id  evid  time    ka  vmax    km     v    cp ipredSim   sim depot centre</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1     0  0.25     1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  31.3     31.3  44.7 <span style="text-decoration: underline;">7</span>788.  <span style="text-decoration: underline;">2</span>197.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     1     0  0.5      1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  55.4     55.4  53.9 <span style="text-decoration: underline;">6</span>065.  <span style="text-decoration: underline;">3</span>882.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     1     0  0.75     1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  73.8     73.8  71.0 <span style="text-decoration: underline;">4</span>724.  <span style="text-decoration: underline;">5</span>172.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     1     0  1        1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  87.8     87.8  94.9 <span style="text-decoration: underline;">3</span>679.  <span style="text-decoration: underline;">6</span>156.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     1     0  1.5      1 <span style="text-decoration: underline;">1</span>002.  250.  70.1 106.     106.   93.6 <span style="text-decoration: underline;">2</span>231.  <span style="text-decoration: underline;">7</span>462.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     1     0  2        1 <span style="text-decoration: underline;">1</span>002.  250.  70.1 117.     117.  123.  <span style="text-decoration: underline;">1</span>353.  <span style="text-decoration: underline;">8</span>185.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,954 more rows</span></span>
 <span class="r-in"><span><span class="co"># Return only predicted concentrations</span></span></span>
 <span class="r-in"><span><span class="fu">Fit_1cmpt_mm_oral</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  data <span class="op">=</span> <span class="va">dat</span>,</span></span>
@@ -207,12 +208,12 @@ Otherwise, returns a fitted model object produced by nlmixr2.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,960 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      id  evid  time    ka  vmax    km     v    cp ipredSim   sim depot centre</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1     0  0.25     1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  31.3     31.3  39.2 <span style="text-decoration: underline;">7</span>788.  <span style="text-decoration: underline;">2</span>197.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     1     0  0.5      1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  55.4     55.4  52.2 <span style="text-decoration: underline;">6</span>065.  <span style="text-decoration: underline;">3</span>882.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     1     0  0.75     1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  73.8     73.8  80.4 <span style="text-decoration: underline;">4</span>724.  <span style="text-decoration: underline;">5</span>172.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     1     0  1        1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  87.8     87.8  89.5 <span style="text-decoration: underline;">3</span>679.  <span style="text-decoration: underline;">6</span>156.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     1     0  1.5      1 <span style="text-decoration: underline;">1</span>002.  250.  70.1 106.     106.   86.0 <span style="text-decoration: underline;">2</span>231.  <span style="text-decoration: underline;">7</span>462.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     1     0  2        1 <span style="text-decoration: underline;">1</span>002.  250.  70.1 117.     117.  136.  <span style="text-decoration: underline;">1</span>353.  <span style="text-decoration: underline;">8</span>185.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1     0  0.25     1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  31.3     31.3  29.7 <span style="text-decoration: underline;">7</span>788.  <span style="text-decoration: underline;">2</span>197.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     1     0  0.5      1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  55.4     55.4  49.8 <span style="text-decoration: underline;">6</span>065.  <span style="text-decoration: underline;">3</span>882.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     1     0  0.75     1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  73.8     73.8  72.9 <span style="text-decoration: underline;">4</span>724.  <span style="text-decoration: underline;">5</span>172.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     1     0  1        1 <span style="text-decoration: underline;">1</span>002.  250.  70.1  87.8     87.8  95.0 <span style="text-decoration: underline;">3</span>679.  <span style="text-decoration: underline;">6</span>156.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     1     0  1.5      1 <span style="text-decoration: underline;">1</span>002.  250.  70.1 106.     106.  105.  <span style="text-decoration: underline;">2</span>231.  <span style="text-decoration: underline;">7</span>462.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     1     0  2        1 <span style="text-decoration: underline;">1</span>002.  250.  70.1 117.     117.  120.  <span style="text-decoration: underline;">1</span>353.  <span style="text-decoration: underline;">8</span>185.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,954 more rows</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

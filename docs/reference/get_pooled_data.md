@@ -63,8 +63,8 @@ rounded before comparison.
 
 ## See also
 
-[pooled_control](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/pooled_control.md),
-[trimmed_geom_mean](https://ucl-pharmacometrics.github.io/nlmixr2autoinit/reference/trimmed_geom_mean.md)
+[pooled_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md),
+[trimmed_geom_mean](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/trimmed_geom_mean.md)
 
 ## Author
 
