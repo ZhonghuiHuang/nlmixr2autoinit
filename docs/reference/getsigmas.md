@@ -59,23 +59,6 @@ Zhonghui Huang
 ``` r
 dat <- Bolus_1CPT
 dat <- processData(dat)$dat
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                bolus          
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6951           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2276           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4675           
-#> ----------------------------------------  ------
 getsigmas(dat[dat$ID == 1 & dat$dose_number == 1 & dat$resetflag == 1 &
               dat$EVID == 0, ])
-#> # A tibble: 1 × 4
-#>   intercept   slope residual_sd_additive residual_sd_proportional
-#>       <dbl>   <dbl>                <dbl>                    <dbl>
-#> 1      6.97 -0.0679                 1.70                   0.0750
 ```

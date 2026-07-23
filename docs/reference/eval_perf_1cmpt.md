@@ -62,19 +62,19 @@ relative root mean square error.
 
 Internally selects the appropriate one-compartment model fitting
 function, using
-[`Fit_1cmpt_oral()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md)
+[`Fit_1cmpt_oral()`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_oral.md)
 for oral administration and
-[`Fit_1cmpt_iv()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_iv.md)
+[`Fit_1cmpt_iv()`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_iv.md)
 for intravenous administration. Predictive performance is quantified
 using the
-[`metrics.()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/metrics..md)
+[`metrics.()`](https://init.nlmixr2auto.org/reference/metrics..md)
 function.
 
 ## See also
 
-[`Fit_1cmpt_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_oral.md),
-[`Fit_1cmpt_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_iv.md),
-[`metrics.`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/metrics..md)
+[`Fit_1cmpt_oral`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_oral.md),
+[`Fit_1cmpt_iv`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_iv.md),
+[`metrics.`](https://init.nlmixr2auto.org/reference/metrics..md)
 
 ## Examples
 
@@ -86,6 +86,4 @@ eval_perf_1cmpt(
   vd = 1,
   route = "bolus"
 )
-#>      APE      MAE     MAPE     RMSE   rRMSE1   rRMSE2 
-#> 1928.878   12.444   51.833   22.003   86.028   45.394 
 ```

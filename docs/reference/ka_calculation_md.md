@@ -78,27 +78,4 @@ Zhonghui Huang
 ``` r
 # Example from Oral_1CPT dataset (ID = 1, 5th dose, t = 2 h)
 ka_calculation_md(cl = 4, ke = 0.057, t = 2, Ct = 852, Dose = 60000, tau = 24)
-#> $ka
-#> [1] 0.6135834
-#> 
-#> $full_solution
-#> $full_solution$root
-#> [1] 0.6135834
-#> 
-#> $full_solution$f.root
-#> [1] 0.001792214
-#> 
-#> $full_solution$iter
-#> [1] 15
-#> 
-#> $full_solution$init.it
-#> [1] NA
-#> 
-#> $full_solution$estim.prec
-#> [1] 6.103516e-05
-#> 
-#> 
-#> $message
-#> [1] "complete"
-#> 
 ```

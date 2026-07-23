@@ -82,7 +82,7 @@ metrics are calculated to assess performance.
 
 ## See also
 
-[`Fit_1cmpt_mm_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_oral.md)
+[`Fit_1cmpt_mm_oral`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_mm_oral.md)
 
 ## Author
 

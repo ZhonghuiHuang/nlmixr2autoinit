@@ -89,8 +89,8 @@ computed for each simulation to assess parameter sensitivity.
 
 ## See also
 
-[`Fit_1cmpt_mm_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_iv.md),
-[`Fit_1cmpt_mm_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_oral.md)
+[`Fit_1cmpt_mm_iv`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_mm_iv.md),
+[`Fit_1cmpt_mm_oral`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_mm_oral.md)
 
 ## Author
 
@@ -110,10 +110,5 @@ out <- sim_sens_1cmpt_mm(
   route = "iv"
 )
 head(out[out$rRMSE2==min(out$rRMSE2),])
-#> # A tibble: 1 × 11
-#>    Vmax    Km    Vd    Ka      APE   MAE  MAPE  RMSE rRMSE1 rRMSE2
-#>   <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>
-#> 1 1427.  178.    70    NA 1697957.  599.  36.5 1286.   78.9   63.1
-#> # ℹ 1 more variable: Cumulative.Time.Sec <dbl>
 # }
 ```

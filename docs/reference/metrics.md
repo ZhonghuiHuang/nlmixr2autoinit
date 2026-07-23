@@ -67,8 +67,4 @@ symmetric and normalizes by the mean of each predicted–observed pair.
 obs.y  <- rnorm(100, mean = 100, sd = 10)
 pred.x <- obs.y + rnorm(100, mean = 0, sd = 5)
 metrics.(pred.x = pred.x, obs.y = obs.y)
-#>    metrics.ape    metrics.mae   metrics.mape   metrics.rmse metrics.rrmse1 
-#>     391.775334       3.917753       4.086624       4.879951       4.926419 
-#> metrics.rrmse2 
-#>       5.156543 
 ```

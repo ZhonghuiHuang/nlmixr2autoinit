@@ -64,10 +64,10 @@ A named list combining all control modules for parameter estimation.
 
 ## See also
 
-[ss_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ss_control.md),
-[pooled_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md),
-[nca_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/nca_control.md),
-[fallback_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/fallback_control.md)
+[ss_control](https://init.nlmixr2auto.org/reference/ss_control.md),
+[pooled_control](https://init.nlmixr2auto.org/reference/pooled_control.md),
+[nca_control](https://init.nlmixr2auto.org/reference/nca_control.md),
+[fallback_control](https://init.nlmixr2auto.org/reference/fallback_control.md)
 
 ## Examples
 
@@ -78,75 +78,4 @@ initsControl(
     sigma_method_additive = "fixed_fraction"
   )
 )
-#> $ss.control
-#> $ss.control$ss_method
-#> [1] "combined"
-#> 
-#> $ss.control$no.doses
-#> [1] 5
-#> 
-#> $ss.control$no.half_lives
-#> [1] 5
-#> 
-#> $ss.control$allowed_interval_variation
-#> [1] 0.25
-#> 
-#> $ss.control$allowed_dose_variation
-#> [1] 0.2
-#> 
-#> $ss.control$min_doses_required
-#> [1] 3
-#> 
-#> $ss.control$tad_rounding
-#> [1] TRUE
-#> 
-#> 
-#> $pooled.control
-#> $pooled.control$nbins
-#> [1] 8
-#> 
-#> $pooled.control$bin_method
-#> [1] "quantile"
-#> 
-#> $pooled.control$tad_rounding
-#> [1] TRUE
-#> 
-#> 
-#> $nca.control
-#> $nca.control$trapezoidal.rule
-#> [1] "linear_up_log_down" "linear"            
-#> 
-#> $nca.control$duration
-#> NULL
-#> 
-#> $nca.control$nlastpoints
-#> [1] 3
-#> 
-#> $nca.control$slope.method
-#> [1] "bestfitforce"
-#> 
-#> 
-#> $fallback.control
-#> $fallback.control$enable_ka_fallback
-#> [1] TRUE
-#> 
-#> $fallback.control$sigma_method_additive
-#> [1] "fixed_fraction"
-#> 
-#> $fallback.control$sigma_method_proportional
-#> [1] "model"
-#> 
-#> $fallback.control$sigma_fallback_fraction
-#> [1] 0.2
-#> 
-#> 
-#> $selmetrics
-#> [1] "rRMSE2"
-#> 
-#> $hybrid.base
-#> [1] TRUE
-#> 
-#> $preferNCA
-#> [1] TRUE
-#> 
 ```

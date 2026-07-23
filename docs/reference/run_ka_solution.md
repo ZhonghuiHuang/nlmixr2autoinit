@@ -65,13 +65,13 @@ multiple-dose at steady state.
 
 - For single-dose data (dose_number == 1 and SteadyState == FALSE), the
   function uses
-  [`ka_calculation_sd()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ka_calculation_sd.md),
+  [`ka_calculation_sd()`](https://init.nlmixr2auto.org/reference/ka_calculation_sd.md),
   which applies a one-compartment oral absorption model under
   first-order absorption and elimination.
 
 - For steady-state multiple-dose data (dose_number \> 1 and SteadyState
   == TRUE), the function uses
-  [`ka_calculation_md()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ka_calculation_md.md),
+  [`ka_calculation_md()`](https://init.nlmixr2auto.org/reference/ka_calculation_md.md),
   which accounts for accumulation using the dosing interval
   (dose_interval).
 
@@ -88,40 +88,12 @@ Zhonghui Huang
 # Single-dose
 df <- Oral_1CPT[Oral_1CPT$SD == 1, ]
 df <- processData(df)$dat
-#> 
-#> 
-#> Infometrics                               Value      
-#> ----------------------------------------  -----------
-#> Dose Route                                oral       
-#> Dose Type                                 first_dose 
-#> Number of Subjects                        120        
-#> Number of Observations                    2273       
-#> Subjects with First-Dose Interval Data    120        
-#> Observations in the First-Dose Interval   2273       
-#> Subjects with Multiple-Dose Data          0          
-#> Observations after Multiple Doses         0          
-#> ----------------------------------------  ------
 df <- is_ss(df)
 run_ka_solution(df = df, cl = 4, ke = 4/70, Fbio = 1)$ka_calc_median
-#> [1] 0.8409131
 
 # Mixed doses
 dat <- Oral_1CPT
 df_ss <- processData(dat)$dat
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                oral           
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6947           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2273           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4674           
-#> ----------------------------------------  ------
 df_ss <- is_ss(df_ss)
 run_ka_solution(df = df_ss, cl = 4, ke = 4/70, Fbio = 1)$ka_calc_median
-#> [1] 0.6948711
 ```

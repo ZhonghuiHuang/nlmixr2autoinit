@@ -22,7 +22,7 @@ complex model parameters such as $`V_{max}`$ and $`K_m`$, without
 re-running the full estimation pipeline.
 
 For example,
-[`sim_sens_1cmpt_mm()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/sim_sens_1cmpt_mm.md)
+[`sim_sens_1cmpt_mm()`](https://init.nlmixr2auto.org/reference/sim_sens_1cmpt_mm.md)
 then performs the sweep for $`V_{max}`$ and $`K_m`$ in a one-compartment
 model with Michaelis-Menten elimination for IV data.
 
@@ -43,7 +43,7 @@ out1 <- sim_sens_1cmpt_mm(
 We can inspect the first few rows of the simulated output and see that
 multiple goodness-of-fit metrics are returned for each parameter
 combination. Definitions of these metrics are provided in
-[`?metrics.`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/metrics..md).
+[`?metrics.`](https://init.nlmixr2auto.org/reference/metrics..md).
 
 Here we focus on `rRMSE2`, the symmetric relative root mean squared
 error, which normalizes each predicted–observed difference by the mean
@@ -116,9 +116,9 @@ print(p1)
 ## See Also
 
 - [Integration with
-  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)
-  — manual model building using estimates from
-  [`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+  nlmixr2](https://init.nlmixr2auto.org/articles/workflow_nlmixr2.md) —
+  manual model building using estimates from
+  [`getPPKinits()`](https://init.nlmixr2auto.org/reference/getPPKinits.md)
 - [Integration with
-  nlmixr2auto](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md)
+  nlmixr2auto](https://init.nlmixr2auto.org/articles/workflow_nlmixr2auto.md)
   — automated model selection using `nlmixr2auto`

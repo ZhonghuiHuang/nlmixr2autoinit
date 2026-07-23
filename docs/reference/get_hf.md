@@ -68,9 +68,9 @@ The function estimates terminal half-life using the following procedure:
 
 ## See also
 
-[get_pooled_data](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
-[bin.time](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/bin.time.md),
-[find_best_lambdaz](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md)
+[get_pooled_data](https://init.nlmixr2auto.org/reference/get_pooled_data.md),
+[bin.time](https://init.nlmixr2auto.org/reference/bin.time.md),
+[find_best_lambdaz](https://init.nlmixr2auto.org/reference/find_best_lambdaz.md)
 
 ## Author
 
@@ -81,122 +81,5 @@ Zhonghui Huang
 ``` r
 dat <- Bolus_1CPT
 dat <- processData(dat)$dat
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                bolus          
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6951           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2276           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4675           
-#> ----------------------------------------  ------
 get_hf(dat, dose_type = "combined_doses")
-#> Estimating half-life....................
-#> Half-life estimation complete: Estimated t1/2 = 11.26 h
-#> $half_life_median
-#> [1] 11.26
-#> 
-#> $half_life_fd
-#> [1] 11.00072
-#> 
-#> $half_life_md
-#> [1] 11.47287
-#> 
-#> $half_life_all
-#> [1] 11.26485
-#> 
-#> $slope_results_fd
-#> $slope_results_fd$lambdaz
-#> [1] 0.06300926
-#> 
-#> $slope_results_fd$intercept
-#> [1] -4.199239
-#> 
-#> $slope_results_fd$method
-#> [1] "find_best_lambdaz"
-#> 
-#> $slope_results_fd$UsedPoints
-#> [1] 9
-#> 
-#> $slope_results_fd$adj.r.squared
-#> [1] 0.9973679
-#> 
-#> $slope_results_fd$message
-#> [1] "Selected 9 points (higher Rsquare) Rsquare=0.9974 lambdaz=0.0630"
-#> 
-#> $slope_results_fd$slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>     -4.19924      -0.06301  
-#> 
-#> 
-#> 
-#> $slope_results_md
-#> $slope_results_md$lambdaz
-#> [1] 0.06041619
-#> 
-#> $slope_results_md$intercept
-#> [1] -3.929461
-#> 
-#> $slope_results_md$method
-#> [1] "find_best_lambdaz"
-#> 
-#> $slope_results_md$UsedPoints
-#> [1] 9
-#> 
-#> $slope_results_md$adj.r.squared
-#> [1] 0.9956069
-#> 
-#> $slope_results_md$message
-#> [1] "Selected 9 points (higher Rsquare) Rsquare=0.9956 lambdaz=0.0604"
-#> 
-#> $slope_results_md$slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>     -3.92946      -0.06042  
-#> 
-#> 
-#> 
-#> $slope_results_all
-#> $slope_results_all$lambdaz
-#> [1] 0.06153184
-#> 
-#> $slope_results_all$intercept
-#> [1] -4.021999
-#> 
-#> $slope_results_all$method
-#> [1] "find_best_lambdaz"
-#> 
-#> $slope_results_all$UsedPoints
-#> [1] 9
-#> 
-#> $slope_results_all$adj.r.squared
-#> [1] 0.9904207
-#> 
-#> $slope_results_all$message
-#> [1] "Selected 9 points (higher Rsquare) Rsquare=0.9904 lambdaz=0.0615"
-#> 
-#> $slope_results_all$slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>     -4.02200      -0.06153  
-#> 
-#> 
-#> 
 ```

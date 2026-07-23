@@ -84,7 +84,7 @@ calculated to assess model performance.
 
 ## See also
 
-[`Fit_3cmpt_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_3cmpt_oral.md)
+[`Fit_3cmpt_oral`](https://init.nlmixr2auto.org/reference/Fit_3cmpt_oral.md)
 
 ## Author
 

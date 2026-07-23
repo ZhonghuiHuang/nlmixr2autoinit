@@ -153,9 +153,9 @@ The operations follow these steps:
 
 ## See also
 
-[`nmpkconvert`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/nmpkconvert.md),
-[`mark_dose_number`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/mark_dose_number.md),
-[`calculate_tad`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/calculate_tad.md)
+[`nmpkconvert`](https://init.nlmixr2auto.org/reference/nmpkconvert.md),
+[`mark_dose_number`](https://init.nlmixr2auto.org/reference/mark_dose_number.md),
+[`calculate_tad`](https://init.nlmixr2auto.org/reference/calculate_tad.md)
 
 ## Author
 
@@ -166,48 +166,4 @@ Zhonghui Huang
 ``` r
 dat <- Bolus_1CPT
 processData(dat)
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                bolus          
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6951           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2276           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4675           
-#> ----------------------------------------  ------
-#> $dat
-#> # A tibble: 7,911 × 28
-#>       ID  TIME    DV  LNDV   MDV   AMT  EVID raw_dose     V    CL    SS    II
-#>    <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <int> <dbl> <dbl> <dbl> <dbl>
-#>  1     1  0       0   0        1 60000     1    60000  65.1  4.07    99     0
-#>  2     1  0.25 1126.  7.03     0     0     0    60000  65.1  4.07    99     0
-#>  3     1  0.5   870.  6.77     0     0     0    60000  65.1  4.07    99     0
-#>  4     1  0.75  884.  6.78     0     0     0    60000  65.1  4.07    99     0
-#>  5     1  1    1244   7.13     0     0     0    60000  65.1  4.07    99     0
-#>  6     1  1.5   995.  6.90     0     0     0    60000  65.1  4.07    99     0
-#>  7     1  2     946.  6.85     0     0     0    60000  65.1  4.07    99     0
-#>  8     1  2.5   589.  6.38     0     0     0    60000  65.1  4.07    99     0
-#>  9     1  3     754.  6.63     0     0     0    60000  65.1  4.07    99     0
-#> 10     1  4    1061.  6.97     0     0     0    60000  65.1  4.07    99     0
-#> # ℹ 7,901 more rows
-#> # ℹ 16 more variables: SD <int>, CMT <int>, resetflag <int>, raw_EVID <dbl>,
-#> #   RATE <dbl>, SSflag <int>, route <chr>, dose_number <int>, tad <dbl>,
-#> #   dose <dbl>, iiobs <dbl>, rateobs <dbl>, routeobs <chr>, durationobs <dbl>,
-#> #   DVstd <dbl>, indiv_lambdaz_eligible <int>
-#> 
-#> $Datainfo
-#>                               Infometrics          Value
-#> 1                              Dose Route          bolus
-#> 2                               Dose Type combined_doses
-#> 3                      Number of Subjects            120
-#> 4                  Number of Observations           6951
-#> 5  Subjects with First-Dose Interval Data            120
-#> 6 Observations in the First-Dose Interval           2276
-#> 7        Subjects with Multiple-Dose Data            120
-#> 8       Observations after Multiple Doses           4675
-#> 
 ```

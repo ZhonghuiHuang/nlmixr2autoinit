@@ -42,7 +42,7 @@ run_graphcal(
 - pooled_ctrl:
 
   Control settings created by
-  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md)
+  [`pooled_control()`](https://init.nlmixr2auto.org/reference/pooled_control.md)
   for time binning and pooling.
 
 - ...:
@@ -56,7 +56,7 @@ A list containing graphical estimates of key pharmacokinetic parameters.
 ## Details
 
 The function pools individual profiles using
-[`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+[`get_pooled_data()`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
 when needed, and then applies route-specific graphical methods
 (`graphcal_iv` or `graphcal_oral`) to estimate parameters such as
 clearance, volume of distribution, terminal slope, and absorption rate
@@ -64,9 +64,9 @@ constant (for oral data).
 
 ## See also
 
-[`graphcal_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/graphcal_iv.md),
-[`graphcal_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/graphcal_oral.md),
-[`get_pooled_data`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+[`graphcal_iv`](https://init.nlmixr2auto.org/reference/graphcal_iv.md),
+[`graphcal_oral`](https://init.nlmixr2auto.org/reference/graphcal_oral.md),
+[`get_pooled_data`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
 
 ## Author
 
@@ -78,146 +78,17 @@ Zhonghui Huang
 # Example 1 (iv case)
 dat <- Bolus_1CPT
 dat <- processData(dat)$dat
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                bolus          
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6951           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2276           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4675           
-#> ----------------------------------------  ------
 run_graphcal(dat, route="bolus")
-#> $cl
-#> [1] 4.19866
-#> 
-#> $vd
-#> [1] 66.6356
-#> 
-#> $slope
-#> [1] -0.06300926
-#> 
-#> $C0exp
-#> [1] 0.01500699
-#> 
-#> $method
-#> [1] "find_best_lambdaz"
-#> 
-#> $slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>     -4.19924      -0.06301  
-#> 
-#> 
-#> $time.spent
-#> [1] 0.003
-#> 
 
 # Example 2 (oral case)
 dat <- Oral_1CPT
 dat <- processData(dat)$dat
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                oral           
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6947           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2273           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4674           
-#> ----------------------------------------  ------
 run_graphcal(dat, route="oral")
-#> $ka
-#> [1] 0.8880668
-#> 
-#> $kel
-#> [1] 0.06293042
-#> 
-#> $slope
-#> [1] -0.06293042
-#> 
-#> $C0exp
-#> [1] 0.01614338
-#> 
-#> $cl
-#> [1] 4.195522
-#> 
-#> $vd
-#> [1] 66.66922
-#> 
-#> $method
-#> [1] "find_best_lambdaz"
-#> 
-#> $slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>     -4.12625      -0.06293  
-#> 
-#> 
-#> $time.spent
-#> [1] 0.003
-#> 
 
 # Example 3 (infusion case).
 # Approximate calculation. only use when the infusion duration is very short
 
 dat <- Infusion_1CPT
 dat <- processData(dat)$dat
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                infusion       
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6953           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2276           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4677           
-#> ----------------------------------------  ------
 run_graphcal(dat, route="infusion")
-#> $cl
-#> [1] 4.219652
-#> 
-#> $vd
-#> [1] 68.13998
-#> 
-#> $slope
-#> [1] -0.06192623
-#> 
-#> $C0exp
-#> [1] 0.01467567
-#> 
-#> $method
-#> [1] "find_best_lambdaz"
-#> 
-#> $slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>     -4.22156      -0.06193  
-#> 
-#> 
-#> $time.spent
-#> [1] 0.002
-#> 
 ```

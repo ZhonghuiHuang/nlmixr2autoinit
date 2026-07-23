@@ -42,9 +42,9 @@ run_pooled_nca(
 - pooled_ctrl:
 
   Optional list of control parameters used by
-  [`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+  [`get_pooled_data()`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
   for pooling observations. Defaults to output from
-  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md).
+  [`pooled_control()`](https://init.nlmixr2auto.org/reference/pooled_control.md).
 
 - nca_ctrl:
 
@@ -64,9 +64,9 @@ specified in `nca_ctrl`.
 
 ## See also
 
-[`get_pooled_data`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
-[`bin.time`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/bin.time.md),
-[`getnca`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getnca.md)
+[`get_pooled_data`](https://init.nlmixr2auto.org/reference/get_pooled_data.md),
+[`bin.time`](https://init.nlmixr2auto.org/reference/bin.time.md),
+[`getnca`](https://init.nlmixr2auto.org/reference/getnca.md)
 
 ## Author
 
@@ -76,19 +76,6 @@ Zhonghui Huang
 
 ``` r
 out   <- processData(Bolus_1CPT)
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                bolus          
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6951           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2276           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4675           
-#> ----------------------------------------  ------
 dat   <- out$dat
 route <- out$Datainfo$Value[out$Datainfo$Infometrics == "Dose Route"]
 
@@ -97,43 +84,4 @@ run_pooled_nca(
   dose_type = "first_dose",
   route     = route
 )$nca.fd.results
-#> $clobs
-#> [1] 4.168867
-#> 
-#> $vzobs
-#> [1] 66.19907
-#> 
-#> $half_life
-#> [1] 11.00676
-#> 
-#> $auct
-#> [1] 0.2349507
-#> 
-#> $auc0_inf
-#> [1] 0.2398733
-#> 
-#> $C_last
-#> [1] 0.00031
-#> 
-#> $lambdaz
-#> [1] 0.0629747
-#> 
-#> $aumc_0_t
-#> [1] 3.479866
-#> 
-#> $aumc_0_inf
-#> [1] 3.853391
-#> 
-#> $used_points
-#> [1] 10
-#> 
-#> $adj.r.squared
-#> [1] 0.9975843
-#> 
-#> $messages
-#> [1] "[Message]: 1: Selected 10 points (higher Rsquare) Rsquare=0.9976 lambdaz=0.0630"
-#> 
-#> $time.spent
-#> [1] 0.004
-#> 
 ```

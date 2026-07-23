@@ -94,36 +94,6 @@ Fit_1cmpt_mm_oral(
   input.vd = 70,
   input.add = 10
 )
-#> ── Solved rxode2 object ──
-#> ── Parameters (value$params): ──
-#> # A tibble: 120 × 6
-#>    id      tka lvmax   lkm    tv add.err
-#>    <fct> <dbl> <dbl> <dbl> <dbl>   <dbl>
-#>  1 1         0  6.91  5.52  4.25      10
-#>  2 2         0  6.91  5.52  4.25      10
-#>  3 3         0  6.91  5.52  4.25      10
-#>  4 4         0  6.91  5.52  4.25      10
-#>  5 5         0  6.91  5.52  4.25      10
-#>  6 6         0  6.91  5.52  4.25      10
-#>  7 7         0  6.91  5.52  4.25      10
-#>  8 8         0  6.91  5.52  4.25      10
-#>  9 9         0  6.91  5.52  4.25      10
-#> 10 10        0  6.91  5.52  4.25      10
-#> # ℹ 110 more rows
-#> ── Initial Conditions (value$inits): ──
-#>  depot centre 
-#>      0      0 
-#> ── First part of data (object): ──
-#> # A tibble: 6,960 × 12
-#>      id  evid  time    ka  vmax    km     v    cp ipredSim   sim depot centre
-#>   <int> <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl>  <dbl>
-#> 1     1     0  0.25     1 1002.  250.  70.1  31.3     31.3  44.7 7788.  2197.
-#> 2     1     0  0.5      1 1002.  250.  70.1  55.4     55.4  53.9 6065.  3882.
-#> 3     1     0  0.75     1 1002.  250.  70.1  73.8     73.8  71.0 4724.  5172.
-#> 4     1     0  1        1 1002.  250.  70.1  87.8     87.8  94.9 3679.  6156.
-#> 5     1     0  1.5      1 1002.  250.  70.1 106.     106.   93.6 2231.  7462.
-#> 6     1     0  2        1 1002.  250.  70.1 117.     117.  123.  1353.  8185.
-#> # ℹ 6,954 more rows
 # Return only predicted concentrations
 Fit_1cmpt_mm_oral(
   data = dat,
@@ -134,35 +104,5 @@ Fit_1cmpt_mm_oral(
   input.vd = 70,
   input.add = 10
 )
-#> ── Solved rxode2 object ──
-#> ── Parameters (value$params): ──
-#> # A tibble: 120 × 6
-#>    id      tka lvmax   lkm    tv add.err
-#>    <fct> <dbl> <dbl> <dbl> <dbl>   <dbl>
-#>  1 1         0  6.91  5.52  4.25      10
-#>  2 2         0  6.91  5.52  4.25      10
-#>  3 3         0  6.91  5.52  4.25      10
-#>  4 4         0  6.91  5.52  4.25      10
-#>  5 5         0  6.91  5.52  4.25      10
-#>  6 6         0  6.91  5.52  4.25      10
-#>  7 7         0  6.91  5.52  4.25      10
-#>  8 8         0  6.91  5.52  4.25      10
-#>  9 9         0  6.91  5.52  4.25      10
-#> 10 10        0  6.91  5.52  4.25      10
-#> # ℹ 110 more rows
-#> ── Initial Conditions (value$inits): ──
-#>  depot centre 
-#>      0      0 
-#> ── First part of data (object): ──
-#> # A tibble: 6,960 × 12
-#>      id  evid  time    ka  vmax    km     v    cp ipredSim   sim depot centre
-#>   <int> <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl>  <dbl>
-#> 1     1     0  0.25     1 1002.  250.  70.1  31.3     31.3  29.7 7788.  2197.
-#> 2     1     0  0.5      1 1002.  250.  70.1  55.4     55.4  49.8 6065.  3882.
-#> 3     1     0  0.75     1 1002.  250.  70.1  73.8     73.8  72.9 4724.  5172.
-#> 4     1     0  1        1 1002.  250.  70.1  87.8     87.8  95.0 3679.  6156.
-#> 5     1     0  1.5      1 1002.  250.  70.1 106.     106.  105.  2231.  7462.
-#> 6     1     0  2        1 1002.  250.  70.1 117.     117.  120.  1353.  8185.
-#> # ℹ 6,954 more rows
 # }
 ```

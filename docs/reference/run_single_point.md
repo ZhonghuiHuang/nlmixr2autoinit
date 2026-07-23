@@ -61,8 +61,8 @@ extended steps.
 
 ## See also
 
-[`run_single_point_base`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md),
-[`run_single_point_extra`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_extra.md)
+[`run_single_point_base`](https://init.nlmixr2auto.org/reference/run_single_point_base.md),
+[`run_single_point_extra`](https://init.nlmixr2auto.org/reference/run_single_point_extra.md)
 
 ## Author
 
@@ -75,26 +75,11 @@ Zhonghui Huang
 # Step 1: Preprocess the data
 dat <- Oral_1CPT
 out <- processData(dat)
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                oral           
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6947           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2273           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4674           
-#> ----------------------------------------  ------
 # Step 2: Extract route and dose type info
 froute <- out$Datainfo$Value[out$Datainfo$Infometrics == "Dose Route"]
 fdose_type <- out$Datainfo$Value[out$Datainfo$Infometrics == "Dose Type"]
 # Step 3: Estimate half life
 half_life <- get_hf(dat = out$dat)$half_life_median
-#> Estimating half-life....................
-#> Half-life estimation complete: Estimated t1/2 = 11.08 h
 # Step 4: Run single-point analysis (CL, Vd, Ka if oral)
 result <- run_single_point(
   dat = out$dat,
@@ -104,8 +89,4 @@ result <- run_single_point(
 )
 # Step 5: View results
 print(result$singlepoint.results)
-#>      ka   cl   vd           starttime time.spent
-#> 1 0.889 3.28 52.4 2026-07-22 22:00:27      0.988
-#>                                                         single_point.message
-#> 1 CL and Vd were calculated directly from steady-state and single-dose data.
 ```

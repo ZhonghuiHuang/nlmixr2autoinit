@@ -72,7 +72,7 @@ representative starting point for nonlinear elimination.
 
 ## See also
 
-[`Fit_1cmpt_mm_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_iv.md)
+[`Fit_1cmpt_mm_iv`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_mm_iv.md)
 
 ## Author
 

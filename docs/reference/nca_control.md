@@ -60,16 +60,4 @@ Zhonghui Huang
 
 ``` r
 nca_control()
-#> $trapezoidal.rule
-#> [1] "linear_up_log_down" "linear"            
-#> 
-#> $duration
-#> NULL
-#> 
-#> $nlastpoints
-#> [1] 3
-#> 
-#> $slope.method
-#> [1] "bestfitforce"
-#> 
 ```

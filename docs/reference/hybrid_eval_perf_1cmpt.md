@@ -149,14 +149,4 @@ nca_all_ka <- 1.25; nca_all_cl <- 3.55; nca_all_vd <- 51
   nca_all_ka = nca_all_ka, nca_all_cl = nca_all_cl, nca_all_vd = nca_all_vd,
   verbose = FALSE
 )
-#>   ka_source cl_source vd_source ka_value cl_value vd_value      APE     MAE
-#> 1   simpcal   simpcal   simpcal     1.20     3.50       50 136681.9 237.295
-#> 2     graph     graph     graph     1.10     3.60       52 125045.5 217.093
-#> 3    nca_fd    nca_fd    nca_fd     1.30     3.40       49 146998.2 255.205
-#> 4   nca_all   nca_all   nca_all     1.25     3.55       51 133702.2 232.122
-#>     MAPE    RMSE rRMSE1 rRMSE2
-#> 1 84.949 392.750 78.951 61.822
-#> 2 80.921 358.673 72.101 60.204
-#> 3 90.650 421.578 84.746 63.035
-#> 4 83.129 384.535 77.300 61.539
 ```

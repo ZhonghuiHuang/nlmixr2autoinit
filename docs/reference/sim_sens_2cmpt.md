@@ -98,8 +98,8 @@ sensitivity.
 
 ## See also
 
-[`Fit_2cmpt_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_2cmpt_iv.md),
-[`Fit_2cmpt_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_2cmpt_oral.md)
+[`Fit_2cmpt_iv`](https://init.nlmixr2auto.org/reference/Fit_2cmpt_iv.md),
+[`Fit_2cmpt_oral`](https://init.nlmixr2auto.org/reference/Fit_2cmpt_oral.md)
 
 ## Author
 
@@ -119,10 +119,5 @@ out <- sim_sens_2cmpt(
   route = "iv",verbose=FALSE
 )
 head(out[out$rRMSE2==min(out$rRMSE2),])
-#> # A tibble: 1 × 12
-#>      Vc    Vp     Q    CL Ka       APE   MAE  MAPE  RMSE rRMSE1 rRMSE2
-#>   <dbl> <dbl> <dbl> <dbl> <lgl>  <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>
-#> 1    50   100     8     4 NA    53184.  183.  63.4  309.   55.5   54.5
-#> # ℹ 1 more variable: Cumulative.Time.Sec <dbl>
 # }
 ```

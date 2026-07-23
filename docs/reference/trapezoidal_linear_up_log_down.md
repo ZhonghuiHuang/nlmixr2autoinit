@@ -44,7 +44,5 @@ curve (AUMC), i.e., it integrates `t * C(t)` over time instead of just
 x <- c(0, 0.5, 1, 2, 4, 6, 8)
 y <- c(0, 2, 8, 5, 3, 2, 1)
 trapezoidal_linear_up_log_down(x, y)                # AUC
-#> [1] 25.03139
 trapezoidal_linear_up_log_down(x, y, moment = TRUE) # AUMC
-#> [1] 78.85055
 ```

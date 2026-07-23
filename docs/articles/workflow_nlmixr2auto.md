@@ -12,7 +12,7 @@ population PK model development.
 We can directly call
 [`auto_param_table()`](https://rdrr.io/pkg/nlmixr2auto/man/auto_param_table.html)
 to convert the output of
-[`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+[`getPPKinits()`](https://init.nlmixr2auto.org/reference/getPPKinits.md)
 into the parameter table format required by `nlmixr2auto`. This table
 can then be passed to
 [`ppkmodGen()`](https://rdrr.io/pkg/nlmixr2auto/man/ppkmodGen.html), the
@@ -187,9 +187,9 @@ fit2
 ## See Also
 
 - [Integration with
-  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md)
-  — manual model building using estimates from
-  [`getPPKinits()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getPPKinits.md)
+  nlmixr2](https://init.nlmixr2auto.org/articles/workflow_nlmixr2.md) —
+  manual model building using estimates from
+  [`getPPKinits()`](https://init.nlmixr2auto.org/reference/getPPKinits.md)
 - [Parameter Sweeping and
-  Visualisation](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/parameter_sweeping.md)
+  Visualisation](https://init.nlmixr2auto.org/articles/parameter_sweeping.md)
   — inspect and visualise the parameter sweep results

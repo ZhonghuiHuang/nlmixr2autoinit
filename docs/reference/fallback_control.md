@@ -42,16 +42,4 @@ A list of fallback control parameters.
 
 ``` r
 fallback_control()
-#> $enable_ka_fallback
-#> [1] TRUE
-#> 
-#> $sigma_method_additive
-#> [1] "model"
-#> 
-#> $sigma_method_proportional
-#> [1] "model"
-#> 
-#> $sigma_fallback_fraction
-#> [1] 0.2
-#> 
 ```

@@ -32,30 +32,4 @@ The resulting output format aligns with `Recommended_initial_estimates`.
 
 ``` r
 getOmegas()
-#>         Parameters                  Methods Values
-#> 1           eta.ka             fixed_values    0.1
-#> 2           eta.cl             fixed_values    0.1
-#> 3           eta.vc             fixed_values    0.1
-#> 4           eta.vp             fixed_values    0.1
-#> 5            eta.q             fixed_values    0.1
-#> 6          eta.vp2             fixed_values    0.1
-#> 7           eta.q2             fixed_values    0.1
-#> 8         eta.vmax             fixed_values    0.1
-#> 9           eta.km             fixed_values    0.1
-#> 10 cor.eta_vmax_km eta_corr_derived (r=0.1)   0.01
-#> 11   cor.eta_cl_vc eta_corr_derived (r=0.1)   0.01
-#> 12   cor.eta_cl_vp eta_corr_derived (r=0.1)   0.01
-#> 13  cor.eta_cl_vp2 eta_corr_derived (r=0.1)   0.01
-#> 14    cor.eta_cl_q eta_corr_derived (r=0.1)   0.01
-#> 15   cor.eta_cl_q2 eta_corr_derived (r=0.1)   0.01
-#> 16   cor.eta_vc_vp eta_corr_derived (r=0.1)   0.01
-#> 17  cor.eta_vc_vp2 eta_corr_derived (r=0.1)   0.01
-#> 18    cor.eta_vc_q eta_corr_derived (r=0.1)   0.01
-#> 19   cor.eta_vc_q2 eta_corr_derived (r=0.1)   0.01
-#> 20  cor.eta_vp_vp2 eta_corr_derived (r=0.1)   0.01
-#> 21    cor.eta_vp_q eta_corr_derived (r=0.1)   0.01
-#> 22   cor.eta_vp_q2 eta_corr_derived (r=0.1)   0.01
-#> 23   cor.eta_vp2_q eta_corr_derived (r=0.1)   0.01
-#> 24  cor.eta_vp2_q2 eta_corr_derived (r=0.1)   0.01
-#> 25    cor.eta_q_q2 eta_corr_derived (r=0.1)   0.01
 ```

@@ -37,7 +37,5 @@ trapezoidal rule.
 x <- c(0.5, 1, 2, 4, 6, 8)
 y <- c(12, 8, 5, 3, 2, 1)
 trapezoidal_linear(x, y)                # AUC
-#> [1] 27.5
 trapezoidal_linear(x, y, moment = TRUE) # AUMC
-#> [1] 78.5
 ```

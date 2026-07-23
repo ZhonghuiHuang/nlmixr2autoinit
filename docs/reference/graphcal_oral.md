@@ -26,7 +26,7 @@ graphcal_oral(dat, dose = 1, ...)
 - ...:
 
   Additional arguments passed to
-  [`find_best_lambdaz()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md).
+  [`find_best_lambdaz()`](https://init.nlmixr2auto.org/reference/find_best_lambdaz.md).
 
 ## Value
 
@@ -36,7 +36,7 @@ and Cl/F.
 ## Details
 
 The terminal slope (lambdaz) is estimated using
-[`force_find_lambdaz()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md).
+[`force_find_lambdaz()`](https://init.nlmixr2auto.org/reference/force_find_lambdaz.md).
 The apparent volume of distribution and clearance are computed using the
 following relationships: \$\$Vd/F = \frac{Dose \times ka}{C_0 \times
 (ka - kel)}\$\$ \$\$Cl/F = kel \times Vd/F\$\$ where `ka` is estimated
@@ -44,7 +44,7 @@ from the absorption phase.
 
 ## See also
 
-[`find_best_lambdaz`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md)
+[`find_best_lambdaz`](https://init.nlmixr2auto.org/reference/find_best_lambdaz.md)
 
 ## Author
 
@@ -56,38 +56,4 @@ Zhonghui Huang
 dat <- data.frame(TIME = c(0.5, 1, 2, 4, 6, 8, 10),
                   DV = c(1, 2, 5, 3, 2, 1.5, 1))
 graphcal_oral(dat, dose = 100, route = "oral")
-#> $ka
-#> [1] 0.6801746
-#> 
-#> $kel
-#> [1] 0.1791759
-#> 
-#> $slope
-#> [1] -0.1791759
-#> 
-#> $C0exp
-#> [1] 6.071088
-#> 
-#> $cl
-#> [1] 4.006794
-#> 
-#> $vd
-#> [1] 22.36235
-#> 
-#> $method
-#> [1] "find_best_lambdaz"
-#> 
-#> $slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>       1.8035       -0.1792  
-#> 
-#> 
-#> $time.spent
-#> [1] 0.002
-#> 
 ```

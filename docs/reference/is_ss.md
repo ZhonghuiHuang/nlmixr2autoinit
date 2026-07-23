@@ -54,34 +54,7 @@ ss_control()
 ``` r
 dat <- pheno_sd
 dat <- processData(dat)$dat
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                bolus          
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        59             
-#> Number of Observations                    155            
-#> Subjects with First-Dose Interval Data    35             
-#> Observations in the First-Dose Interval   35             
-#> Subjects with Multiple-Dose Data          56             
-#> Observations after Multiple Doses         120            
-#> ----------------------------------------  ------
 out <- is_ss(df = dat)
 out[out$SteadyState == TRUE & !is.na(out$SteadyState),
     c("ID", "TIME", "DV", "EVID", "SteadyState")]
-#> # A tibble: 54 × 5
-#>       ID  TIME    DV  EVID SteadyState
-#>    <int> <dbl> <dbl> <dbl> <lgl>      
-#>  1     1 112.   31       0 TRUE       
-#>  2     2  63.5  24.6     0 TRUE       
-#>  3     2 136.   33       0 TRUE       
-#>  4     3  83.5  23.8     0 TRUE       
-#>  5     3 134.   24.3     0 TRUE       
-#>  6     4 131.   31.7     0 TRUE       
-#>  7     5 132    20.3     0 TRUE       
-#>  8     6 143.   32.5     0 TRUE       
-#>  9     8  73.7  34.2     0 TRUE       
-#> 10     8 147.   36.1     0 TRUE       
-#> # ℹ 44 more rows
 ```

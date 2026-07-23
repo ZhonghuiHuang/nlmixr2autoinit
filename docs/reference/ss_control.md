@@ -72,57 +72,15 @@ ss_control(
 
 A named list containing the steady-state control parameters, typically
 passed as the ssctrl argument to
-[`is_ss()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/is_ss.md).
+[`is_ss()`](https://init.nlmixr2auto.org/reference/is_ss.md).
 
 ## See also
 
-[is_ss](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/is_ss.md)
+[is_ss](https://init.nlmixr2auto.org/reference/is_ss.md)
 
 ## Examples
 
 ``` r
 ss_control()
-#> $ss_method
-#> [1] "combined"
-#> 
-#> $no.doses
-#> [1] 5
-#> 
-#> $no.half_lives
-#> [1] 5
-#> 
-#> $allowed_interval_variation
-#> [1] 0.25
-#> 
-#> $allowed_dose_variation
-#> [1] 0.2
-#> 
-#> $min_doses_required
-#> [1] 3
-#> 
-#> $tad_rounding
-#> [1] TRUE
-#> 
 ss_control(ss_method = "fixed_doses", no.doses = 4)
-#> $ss_method
-#> [1] "fixed_doses"
-#> 
-#> $no.doses
-#> [1] 4
-#> 
-#> $no.half_lives
-#> [1] 5
-#> 
-#> $allowed_interval_variation
-#> [1] 0.25
-#> 
-#> $allowed_dose_variation
-#> [1] 0.2
-#> 
-#> $min_doses_required
-#> [1] 3
-#> 
-#> $tad_rounding
-#> [1] TRUE
-#> 
 ```

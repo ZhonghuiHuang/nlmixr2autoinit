@@ -26,8 +26,8 @@ calculate_vd(
 
   Optional numeric value for the drug's half-life. If not provided, it
   will be estimated using
-  [`get_hf()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_hf.md)
-  from pooled observations.
+  [`get_hf()`](https://init.nlmixr2auto.org/reference/get_hf.md) from
+  pooled observations.
 
 - dose_type:
 
@@ -40,9 +40,9 @@ calculate_vd(
 - pooled_ctrl:
 
   Optional list of control parameters used by
-  [`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+  [`get_pooled_data()`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
   for pooling observations. Defaults to output from
-  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md).
+  [`pooled_control()`](https://init.nlmixr2auto.org/reference/pooled_control.md).
 
 - route:
 
@@ -75,15 +75,14 @@ the actual infusion duration.
 
 When half_life is not provided, it is estimated from pooled data using
 the functions
-[`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
-and
-[`get_hf()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_hf.md).
+[`get_pooled_data()`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
+and [`get_hf()`](https://init.nlmixr2auto.org/reference/get_hf.md).
 
 ## See also
 
-[get_pooled_data](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
-[get_hf](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_hf.md),
-[trimmed_geom_mean](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/trimmed_geom_mean.md)
+[get_pooled_data](https://init.nlmixr2auto.org/reference/get_pooled_data.md),
+[get_hf](https://init.nlmixr2auto.org/reference/get_hf.md),
+[trimmed_geom_mean](https://init.nlmixr2auto.org/reference/trimmed_geom_mean.md)
 
 ## Author
 
@@ -94,24 +93,8 @@ Zhonghui Huang
 ``` r
 dat <- Bolus_1CPT
 out <- processData(dat)
-#> 
-#> 
-#> Infometrics                               Value          
-#> ----------------------------------------  ---------------
-#> Dose Route                                bolus          
-#> Dose Type                                 combined_doses 
-#> Number of Subjects                        120            
-#> Number of Observations                    6951           
-#> Subjects with First-Dose Interval Data    120            
-#> Observations in the First-Dose Interval   2276           
-#> Subjects with Multiple-Dose Data          120            
-#> Observations after Multiple Doses         4675           
-#> ----------------------------------------  ------
 fdat<- out$dat
 froute <-out$Datainfo$Value[out$Datainfo$Infometrics == "Dose Route"]
 half_life <- get_hf(dat = fdat)$half_life_median
-#> Estimating half-life....................
-#> Half-life estimation complete: Estimated t1/2 = 11 h
 calculate_vd(dat = fdat, half_life = half_life,route=froute)$trimmed_mean_vd
-#> [1] 67.57943
 ```

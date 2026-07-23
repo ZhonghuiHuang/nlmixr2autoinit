@@ -121,8 +121,8 @@ provided manually or derived automatically.
 
 ## See also
 
-[`Fit_3cmpt_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_3cmpt_iv.md),
-[`Fit_3cmpt_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_3cmpt_oral.md)
+[`Fit_3cmpt_iv`](https://init.nlmixr2auto.org/reference/Fit_3cmpt_iv.md),
+[`Fit_3cmpt_oral`](https://init.nlmixr2auto.org/reference/Fit_3cmpt_oral.md)
 
 ## Author
 
@@ -143,10 +143,5 @@ out <- sim_sens_3cmpt(
   route = "iv",verbose=FALSE
 )
 head(out[out$rRMSE2==min(out$rRMSE2),])
-#> # A tibble: 1 × 14
-#>      Vc   Vp1   Vp2    Q1    Q2    CL    Ka    APE   MAE  MAPE  RMSE rRMSE1
-#>   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>  <dbl> <dbl> <dbl> <dbl>  <dbl>
-#> 1    50    50    50     8     8     4    NA 47071.  162.  63.3  278.   49.9
-#> # ℹ 2 more variables: rRMSE2 <dbl>, Cumulative.Time.Sec <dbl>
 # }
 ```

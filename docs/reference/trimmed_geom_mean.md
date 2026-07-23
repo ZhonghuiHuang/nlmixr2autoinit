@@ -34,5 +34,4 @@ no values remain after trimming.
 ``` r
 x <- c(1, 2, 3, 4, 5, 100)
 trimmed_geom_mean(x, trim = 0.05)
-#> [1] 4.784797
 ```

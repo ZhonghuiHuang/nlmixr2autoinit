@@ -118,76 +118,10 @@ Zhonghui Huang
 time <- c(0.5, 1, 2, 4, 6, 8, 10)
 conc <- c(12, 8, 5, 3, 2, 1.5, 1)
 find_best_lambdaz(time, conc)
-#> $lambdaz
-#> [1] 0.1791759
-#> 
-#> $UsedPoints
-#> [1] 4
-#> 
-#> $adj.r.squared
-#> [1] 0.9935461
-#> 
-#> $message
-#> [1] "Selected 4 points (higher Rsquare) Rsquare=0.9935 lambdaz=0.1792"
-#> 
-#> $slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>       1.8035       -0.1792  
-#> 
-#> 
 
 # With infusion route specification
 find_best_lambdaz(time, conc, route = "bolus",duration=1)
-#> $lambdaz
-#> [1] 0.1791759
-#> 
-#> $UsedPoints
-#> [1] 4
-#> 
-#> $adj.r.squared
-#> [1] 0.9935461
-#> 
-#> $message
-#> [1] "Selected 4 points (higher Rsquare) Rsquare=0.9935 lambdaz=0.1792"
-#> 
-#> $slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>       1.8035       -0.1792  
-#> 
-#> 
 
 # Custom threshold settings
 find_best_lambdaz(time, conc, adj_r_squared_threshold = 0.8, tolerance = 0.001)
-#> $lambdaz
-#> [1] 0.1791759
-#> 
-#> $UsedPoints
-#> [1] 4
-#> 
-#> $adj.r.squared
-#> [1] 0.9935461
-#> 
-#> $message
-#> [1] "Selected 4 points (higher Rsquare) Rsquare=0.9935 lambdaz=0.1792"
-#> 
-#> $slopefit
-#> 
-#> Call:
-#> lm(formula = log(conc[subset]) ~ time[subset])
-#> 
-#> Coefficients:
-#>  (Intercept)  time[subset]  
-#>       1.8035       -0.1792  
-#> 
-#> 
 ```
