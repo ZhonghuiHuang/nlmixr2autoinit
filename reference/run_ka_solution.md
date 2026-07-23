@@ -65,13 +65,13 @@ multiple-dose at steady state.
 
 - For single-dose data (dose_number == 1 and SteadyState == FALSE), the
   function uses
-  [`ka_calculation_sd()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ka_calculation_sd.md),
+  [`ka_calculation_sd()`](https://init.nlmixr2auto.org/reference/ka_calculation_sd.md),
   which applies a one-compartment oral absorption model under
   first-order absorption and elimination.
 
 - For steady-state multiple-dose data (dose_number \> 1 and SteadyState
   == TRUE), the function uses
-  [`ka_calculation_md()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ka_calculation_md.md),
+  [`ka_calculation_md()`](https://init.nlmixr2auto.org/reference/ka_calculation_md.md),
   which accounts for accumulation using the dosing interval
   (dose_interval).
 

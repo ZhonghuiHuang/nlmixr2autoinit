@@ -89,8 +89,8 @@ computed for each simulation to assess parameter sensitivity.
 
 ## See also
 
-[`Fit_1cmpt_mm_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_iv.md),
-[`Fit_1cmpt_mm_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/Fit_1cmpt_mm_oral.md)
+[`Fit_1cmpt_mm_iv`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_mm_iv.md),
+[`Fit_1cmpt_mm_oral`](https://init.nlmixr2auto.org/reference/Fit_1cmpt_mm_oral.md)
 
 ## Author
 

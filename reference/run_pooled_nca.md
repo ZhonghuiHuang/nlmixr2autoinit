@@ -42,9 +42,9 @@ run_pooled_nca(
 - pooled_ctrl:
 
   Optional list of control parameters used by
-  [`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+  [`get_pooled_data()`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
   for pooling observations. Defaults to output from
-  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md).
+  [`pooled_control()`](https://init.nlmixr2auto.org/reference/pooled_control.md).
 
 - nca_ctrl:
 
@@ -64,9 +64,9 @@ specified in `nca_ctrl`.
 
 ## See also
 
-[`get_pooled_data`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md),
-[`bin.time`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/bin.time.md),
-[`getnca`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/getnca.md)
+[`get_pooled_data`](https://init.nlmixr2auto.org/reference/get_pooled_data.md),
+[`bin.time`](https://init.nlmixr2auto.org/reference/bin.time.md),
+[`getnca`](https://init.nlmixr2auto.org/reference/getnca.md)
 
 ## Author
 
@@ -134,6 +134,6 @@ run_pooled_nca(
 #> [1] "[Message]: 1: Selected 10 points (higher Rsquare) Rsquare=0.9976 lambdaz=0.0630"
 #> 
 #> $time.spent
-#> [1] 0.006
+#> [1] 0.005
 #> 
 ```

@@ -33,7 +33,7 @@ approx.vc(
 - single_point_base.lst:
 
   Optional list object returned by
-  [run_single_point_base](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md)().
+  [run_single_point_base](https://init.nlmixr2auto.org/reference/run_single_point_base.md)().
   If not supplied, the function will generate it internally.
 
 - route:
@@ -44,18 +44,18 @@ approx.vc(
 - dose_type:
 
   Optional string specifying the dosing type, passed to
-  [run_single_point_base](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md)().
+  [run_single_point_base](https://init.nlmixr2auto.org/reference/run_single_point_base.md)().
 
 - pooled_ctrl:
 
   Control object created by
-  [pooled_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md)(),
+  [pooled_control](https://init.nlmixr2auto.org/reference/pooled_control.md)(),
   defining data pooling options.
 
 - ssctrl:
 
   Control object created by
-  [ss_control](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ss_control.md)(),
+  [ss_control](https://init.nlmixr2auto.org/reference/ss_control.md)(),
   defining steady-state control options.
 
 ## Value
@@ -87,10 +87,10 @@ values are used to estimate Vd using the same route-specific equations.
 
 ## See also
 
-[`run_single_point_base`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md),
-[`trimmed_geom_mean`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/trimmed_geom_mean.md),
-[`pooled_control`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md),
-[`ss_control`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/ss_control.md)
+[`run_single_point_base`](https://init.nlmixr2auto.org/reference/run_single_point_base.md),
+[`trimmed_geom_mean`](https://init.nlmixr2auto.org/reference/trimmed_geom_mean.md),
+[`pooled_control`](https://init.nlmixr2auto.org/reference/pooled_control.md),
+[`ss_control`](https://init.nlmixr2auto.org/reference/ss_control.md)
 
 ## Author
 

@@ -21,7 +21,7 @@ getPPKinits(dat, control = initsControl(), ncores = 2, verbose = TRUE)
 - control:
 
   A list created by
-  [`initsControl()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md)
+  [`initsControl()`](https://init.nlmixr2auto.org/reference/initsControl.md)
   specifying configuration for pooling, non-compartmental analysis,
   steady-state detection, fallback rules, statistical model components,
   and parameter selection metrics.
@@ -74,14 +74,14 @@ statistical model components:
 
 ## See also
 
-[`initsControl`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/initsControl.md),
-[`run_single_point`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point.md),
-[`run_graphcal`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_graphcal.md),
-[`run_pooled_nca`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_pooled_nca.md),
-[`sim_sens_1cmpt_mm`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/sim_sens_1cmpt_mm.md),
-[`sim_sens_2cmpt`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/sim_sens_2cmpt.md),
-[`sim_sens_3cmpt`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/sim_sens_3cmpt.md),
-[`metrics.`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/metrics..md)
+[`initsControl`](https://init.nlmixr2auto.org/reference/initsControl.md),
+[`run_single_point`](https://init.nlmixr2auto.org/reference/run_single_point.md),
+[`run_graphcal`](https://init.nlmixr2auto.org/reference/run_graphcal.md),
+[`run_pooled_nca`](https://init.nlmixr2auto.org/reference/run_pooled_nca.md),
+[`sim_sens_1cmpt_mm`](https://init.nlmixr2auto.org/reference/sim_sens_1cmpt_mm.md),
+[`sim_sens_2cmpt`](https://init.nlmixr2auto.org/reference/sim_sens_2cmpt.md),
+[`sim_sens_3cmpt`](https://init.nlmixr2auto.org/reference/sim_sens_3cmpt.md),
+[`metrics.`](https://init.nlmixr2auto.org/reference/metrics..md)
 
 ## Author
 
@@ -132,7 +132,7 @@ getPPKinits(pheno_sd[pheno_sd$ID<11,])
 #> 15 Sigma proportional Fallback (fixed fraction)   0.2000
 #> 
 #> Time spent :
-#> [1] "52.246s"
+#> [1] "50.384s"
 #> 
 #> ETA variances and derived covariances:
 #>         Parameters                  Methods Values

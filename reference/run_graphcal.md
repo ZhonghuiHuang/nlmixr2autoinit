@@ -42,7 +42,7 @@ run_graphcal(
 - pooled_ctrl:
 
   Control settings created by
-  [`pooled_control()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/pooled_control.md)
+  [`pooled_control()`](https://init.nlmixr2auto.org/reference/pooled_control.md)
   for time binning and pooling.
 
 - ...:
@@ -56,7 +56,7 @@ A list containing graphical estimates of key pharmacokinetic parameters.
 ## Details
 
 The function pools individual profiles using
-[`get_pooled_data()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+[`get_pooled_data()`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
 when needed, and then applies route-specific graphical methods
 (`graphcal_iv` or `graphcal_oral`) to estimate parameters such as
 clearance, volume of distribution, terminal slope, and absorption rate
@@ -64,9 +64,9 @@ constant (for oral data).
 
 ## See also
 
-[`graphcal_iv`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/graphcal_iv.md),
-[`graphcal_oral`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/graphcal_oral.md),
-[`get_pooled_data`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/get_pooled_data.md)
+[`graphcal_iv`](https://init.nlmixr2auto.org/reference/graphcal_iv.md),
+[`graphcal_oral`](https://init.nlmixr2auto.org/reference/graphcal_oral.md),
+[`get_pooled_data`](https://init.nlmixr2auto.org/reference/get_pooled_data.md)
 
 ## Author
 
@@ -118,7 +118,7 @@ run_graphcal(dat, route="bolus")
 #> 
 #> 
 #> $time.spent
-#> [1] 0.005
+#> [1] 0.004
 #> 
 
 # Example 2 (oral case)
@@ -170,7 +170,7 @@ run_graphcal(dat, route="oral")
 #> 
 #> 
 #> $time.spent
-#> [1] 0.004
+#> [1] 0.003
 #> 
 
 # Example 3 (infusion case).
@@ -218,6 +218,6 @@ run_graphcal(dat, route="infusion")
 #> 
 #> 
 #> $time.spent
-#> [1] 0.003
+#> [1] 0.024
 #> 
 ```

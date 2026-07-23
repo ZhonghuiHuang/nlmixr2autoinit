@@ -3,16 +3,16 @@
 ### Getting Started
 
 - [Running
-  nlmixr2autoinit](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/running_nlmixr2autoinit.md):
+  nlmixr2autoinit](https://init.nlmixr2auto.org/articles/running_nlmixr2autoinit.md):
 
 ### Workflow Tutorials
 
 - [Integration with
-  nlmixr2](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2.md):
+  nlmixr2](https://init.nlmixr2auto.org/articles/workflow_nlmixr2.md):
 - [Integration with
-  nlmixr2auto](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/workflow_nlmixr2auto.md):
+  nlmixr2auto](https://init.nlmixr2auto.org/articles/workflow_nlmixr2auto.md):
 
 ### Method Tutorials
 
 - [Parameter Sweeping and
-  Visualisation](https://ZhonghuiHuang.github.io/nlmixr2autoinit/articles/parameter_sweeping.md):
+  Visualisation](https://init.nlmixr2auto.org/articles/parameter_sweeping.md):

@@ -26,7 +26,7 @@ graphcal_oral(dat, dose = 1, ...)
 - ...:
 
   Additional arguments passed to
-  [`find_best_lambdaz()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md).
+  [`find_best_lambdaz()`](https://init.nlmixr2auto.org/reference/find_best_lambdaz.md).
 
 ## Value
 
@@ -36,7 +36,7 @@ and Cl/F.
 ## Details
 
 The terminal slope (lambdaz) is estimated using
-[`force_find_lambdaz()`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/force_find_lambdaz.md).
+[`force_find_lambdaz()`](https://init.nlmixr2auto.org/reference/force_find_lambdaz.md).
 The apparent volume of distribution and clearance are computed using the
 following relationships: \$\$Vd/F = \frac{Dose \times ka}{C_0 \times
 (ka - kel)}\$\$ \$\$Cl/F = kel \times Vd/F\$\$ where `ka` is estimated
@@ -44,7 +44,7 @@ from the absorption phase.
 
 ## See also
 
-[`find_best_lambdaz`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/find_best_lambdaz.md)
+[`find_best_lambdaz`](https://init.nlmixr2auto.org/reference/find_best_lambdaz.md)
 
 ## Author
 

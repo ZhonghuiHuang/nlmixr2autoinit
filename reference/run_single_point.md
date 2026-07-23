@@ -61,8 +61,8 @@ extended steps.
 
 ## See also
 
-[`run_single_point_base`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_base.md),
-[`run_single_point_extra`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/run_single_point_extra.md)
+[`run_single_point_base`](https://init.nlmixr2auto.org/reference/run_single_point_base.md),
+[`run_single_point_extra`](https://init.nlmixr2auto.org/reference/run_single_point_extra.md)
 
 ## Author
 
@@ -105,7 +105,7 @@ result <- run_single_point(
 # Step 5: View results
 print(result$singlepoint.results)
 #>      ka   cl   vd           starttime time.spent
-#> 1 0.889 3.28 52.4 2026-07-22 21:28:46      1.315
+#> 1 0.889 3.28 52.4 2026-07-23 00:26:19      1.385
 #>                                                         single_point.message
 #> 1 CL and Vd were calculated directly from steady-state and single-dose data.
 ```

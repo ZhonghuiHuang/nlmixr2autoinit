@@ -153,9 +153,9 @@ The operations follow these steps:
 
 ## See also
 
-[`nmpkconvert`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/nmpkconvert.md),
-[`mark_dose_number`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/mark_dose_number.md),
-[`calculate_tad`](https://ZhonghuiHuang.github.io/nlmixr2autoinit/reference/calculate_tad.md)
+[`nmpkconvert`](https://init.nlmixr2auto.org/reference/nmpkconvert.md),
+[`mark_dose_number`](https://init.nlmixr2auto.org/reference/mark_dose_number.md),
+[`calculate_tad`](https://init.nlmixr2auto.org/reference/calculate_tad.md)
 
 ## Author
 
